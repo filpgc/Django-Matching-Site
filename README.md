@@ -12,3 +12,5 @@ so the users of the site can only select one or more hobbies from the given list
 Feel free to include any extra feature you can think of. Here are two examples of possible extra features:
 a) Users are able to request to connect with another user. The other user would then need to approve the request.
 b) Users are able to “like” other users — and users receive alerts or emails when someone likes them.
+
+Branch test
