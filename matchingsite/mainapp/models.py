@@ -4,6 +4,10 @@ from django.db import models
 
 
 class Profile(models.Model):
+
+    class Meta:
+        verbose_name_plural = "Profile"
+
     firstname = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
     email = models.EmailField(max_length=2000)
@@ -19,6 +23,26 @@ class Profile(models.Model):
     def __str__(self):
         return self.firstname
 
+
+
+
+class Hobby(models.Model):
+
+    class Meta:
+        verbose_name_plural = "Hobby"
+
+    name = models.CharField(max_length=100, default= "Empty")
+    CATEGORY_CHOICES = (
+        ('Out', 'Outdoor'),
+        ('In', 'Indoor')
+
+    )
+    category = models.CharField(max_length=3, choices=CATEGORY_CHOICES)
+
+    def __str__(self):
+        return self.name
+
+
 class Member(User):
     profile = models.OneToOneField(
         to=Profile,
@@ -27,26 +51,11 @@ class Member(User):
         on_delete=models.CASCADE
     )
 
-    hobbies =  models.ManyToManyField(
-        to='self',
+    hobby = models.ManyToManyField(
+        to=Hobby,
         blank=False,
         symmetrical=False,
-        through='Hobby',
     )
 
-
-
-
-
-
-
-class Hobby(models.Model):
-
-    class Meta:
-        verbose_name_plural = "Hobby"
-    name = models.CharField(max_length=100, default= "Empty")
-    CATEGORY_CHOICES = (
-        ('Out', 'Outdoor'),
-        ('In', 'Indoor')
-    )
-    category = models.CharField(max_length=3, choices=CATEGORY_CHOICES)
+    def __str__(self):
+        return self.username
