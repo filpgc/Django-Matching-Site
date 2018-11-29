@@ -4,10 +4,6 @@
     <list default="true" id="1644f307-71a5-49de-8e81-c6d4c61deffe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matchingsite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/matchingsite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matchingsite/mainapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/matchingsite/mainapp/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matchingsite/mainapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matchingsite/mainapp/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matchingsite/mainapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/matchingsite/mainapp/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +29,7 @@
     <session id="-1177341046">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.opened" value="2" />
@@ -78,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/matchingsite/mainapp/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
-              <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
+            <state relative-caret-position="229">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
                 <marker date="1543407616000" expanded="true" signature="73:76" ph="..." />
@@ -206,10 +202,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1680" height="981" extended-state="6" />
+    <frame x="0" y="22" width="1680" height="981" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -229,7 +225,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.1904762" />
+      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.1904762" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,8 +265,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/matchingsite/mainapp/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
+        <state relative-caret-position="229">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
             <marker date="1543407616000" expanded="true" signature="73:76" ph="..." />

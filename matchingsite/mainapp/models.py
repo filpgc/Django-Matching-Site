@@ -3,29 +3,6 @@ from django.db import models
 
 
 
-class Profile(models.Model):
-
-    class Meta:
-        verbose_name_plural = "Profile"
-
-    firstname = models.CharField(max_length=100)
-    surname = models.CharField(max_length=100)
-    email = models.EmailField(max_length=2000)
-    date_of_birth = models.DateField(null=True, blank=True)
-    GENDER_CHOICES = (
-        ('M', 'Male'),
-        ('F', 'Female'),
-        ('F', 'Female'),
-        ('X', 'Unspecified')
-    )
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-
-    def __str__(self):
-        return self.firstname
-
-
-
-
 class Hobby(models.Model):
 
     class Meta:
@@ -44,18 +21,23 @@ class Hobby(models.Model):
 
 
 class Member(User):
-    profile = models.OneToOneField(
-        to=Profile,
-        blank=True,
-        null=True,
-        on_delete=models.CASCADE
-    )
+
+    class Meta:
+        verbose_name_plural = "User"
 
     hobby = models.ManyToManyField(
         to=Hobby,
         blank=False,
         symmetrical=False,
     )
+
+    GENDER_CHOICES = (
+        ('M', 'Male'),
+        ('F', 'Female'),
+        ('X', 'Unspecified')
+    )
+
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
 
     def __str__(self):
         return self.username
