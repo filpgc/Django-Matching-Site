@@ -1,11 +1,13 @@
 from django import forms
+from django.forms import ModelForm
+
 
 GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),
 )
 
-class RegistrationForm(forms.Form):
+class RegistrationForm(forms.ModelForm):
 	first_name=forms.CharField(label='First Name', max_length=100, widget=forms.TextInput(attrs={
 		"placeholder":"First name",
 		"pattern":"[[^A-Za-z]{1,150}",
