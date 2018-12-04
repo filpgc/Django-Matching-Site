@@ -20,4 +20,7 @@ from mainapp import views
 urlpatterns = [
 	path('', views.index),
     path('admin/', admin.site.urls),
+ # register new user
+	path('register/', views.register, name='register')
 ]
+

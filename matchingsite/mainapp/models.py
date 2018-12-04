@@ -8,7 +8,7 @@ class Hobby(models.Model):
     class Meta:
         verbose_name_plural = "Hobby"
 
-    name = models.CharField(max_length=100, default= "Empty")
+    name = models.CharField(max_length=100)
     CATEGORY_CHOICES = (
         ('Out', 'Outdoor'),
         ('In', 'Indoor')

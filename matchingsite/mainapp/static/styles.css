@@ -1,145 +1,267 @@
 /*-----Background-----*/
-
-body{
-     background-image: linear-gradient(285deg, #340e41, #180e41 );
-	 background-repeat:no-repeat;
-	 background-size:cover;
-	 width:100%;
-	 height:100vh;
-	 overflow:auto;
+ body{
+     background-image: linear-gradient(180deg, #340e41, #180e41 );
+     background-repeat:no-repeat;
+     background-size:cover;
+     width:100%;
+     height:150vh;
+     overflow:auto;
      font-family:Roboto,sans-serif;
-
+     color: white
 }
-
 /*-----for border----*/
-.container{
-     background-image: linear-gradient(285deg, #340e41, 	#180e41 );
+ .container{
+     background-image: linear-gradient(1800deg, #340e41, #180e41 );
      border-style: 1px solid grey;
      margin: 0 auto;
      text-align: center;
      opacity: 0.8;
-    border: 1px solid white;
+     border: 1px solid white;
      margin-top: 30px;
-     max-width: 500px;
+     max-width: 510px;
      padding-top: 10px;
-     height: 363px;
-
+     height: 400px;
 }
-
-.welcome{
+ .boot{
+     color:white;
+}
+ .welcome{
      color: white;
      margin: 0 auto;
      text-align: center;
-    margin-top:150px;
+     margin-top:80px;
      opacity: 0.8;
      max-width: 700px;
      padding-top: 10px;
-
 }
+
+ /*------------Only on mobile---------*/
+@media only screen
+and (max-device-width: 600px)
+ {
+    .welcome{
+        margin-top: 0px;
+    }
+}
+
+
+
 /*--- for label of first and last name---*/
-.lastname{
-	 margin-left: 1px;
+ .username{
+     margin-left: 1px;
      font-family: sans-serif;
      font-size: 14px;
      color: white;
      margin-top: 10px;
 }
-.firstname{
-	 margin-left: 1px;
+ .fullname{
+     margin-left: 1px;
      font-family: sans-serif;
      font-size: 14px;
      color: white;
      margin-top: 5px;
 }
-#lname{
-	 margin-top:5px;
+ #uname{
+     margin-top:5px;
 }
-	  
-
 /*---for heading-----*/
-.heading{
-	 text-decoration:bold;
-	 text-align : center;
-	 font-size:30px;
-	 color:white;
-	 padding-top:10px;
+ .heading{
+     text-decoration:bold;
+     text-align : center;
+     font-size:30px;
+     color:white;
+     padding-top:10px;
 }
 /*-------for email----------*/
-  /*------label----*/
-#email{
-	  margin-top: 5px;
+/*------label----*/
+ #email{
+     margin-top: 5px;
 }
 /*-----------for Password--------*/
-     /*-------label-----*/
-.mail{
-	 margin-left: 44px;
+/*-------label-----*/
+ .mail{
+     margin-left: 44px;
      font-family: sans-serif;
      color: white;
      font-size: 14px;
      margin-top: 13px;
 }
-.pass{
-	 color: white;
+ .pass{
+     color: white;
      margin-top: 9px;
      font-size: 14px;
      font-family: sans-serif;
      margin-left: 6px;
      margin-top: 9px;
 }
-#password{
- margin-top: 6px;
+ #password{
+     margin-top: 6px;
 }
 /*------------for phone Number--------*/
-      /*----------label--------*/
-.pno{
-	 font-size: 18px;
+/*----------label--------*/
+ .pno{
+     font-size: 18px;
      margin-left: -13px;
      margin-top: 10px;
      color: #ff9;
-	
-}	
-
+}
 /*--------------for Gender---------------*/
-     /*--------------label---------*/
-.gender {
-	 color: white;
+/*--------------label---------*/
+ .gender {
+     color: white;
      font-family: sans-serif;
      font-size: 14px;
      margin-left: 28px;
      margin-top: 8px;
 }
-
-     /*---------- for Input type--------*/
-.col-xs-4.male{
-	 color: white;
-     font-size: 13px;
-     margin-top: 9px;
-     padding-bottom: 16px;
-}
-.col-xs-4.female {
+/*---------- for Input type--------*/
+ .col-xs-4.male{
      color: white;
      font-size: 13px;
      margin-top: 9px;
-     padding-bottom: 16px;
-	 padding-right: 95px;
-}	
-/*------------For submit button---------*/
-.sbutton{
-	 color: white;
+}
+ .col-xs-4.female {
+     color: white;
+     font-size: 13px;
+     margin-top: 9px;
+
+     padding-right: 60px;
+}
+/*------------For submit button---------
+ .sbutton{
+     color: white;
      font-size: 20px;
      border: 1px solid white;
      background-color: #080808;
      width: 32%;
-     margin-left: 41%;
-     margin-top: 16px;
-	 box-shadow: 0px 2px 2px 0px white;
-  	   
-   }
-.btn.btn-warning:hover {
-    box-shadow: 2px 1px 2px 3px #99ccff;
-	background:#5900a6;
-	color:#fff;
-	transition: background-color 1.15s ease-in-out,border-color 1.15s ease-in-out,box-shadow 1.15s ease-in-out;
-	
-}	 
-	  
+     box-shadow: 0px 2px 2px 0px white;
+
+}
+*/
+ .btn.btn-warning:hover {
+     box-shadow: 2px 1px 2px 3px #99ccff;
+     background:#5900a6;
+     color:#fff;
+     transition: background-color 1.15s ease-in-out,border-color 1.15s ease-in-out,box-shadow 1.15s ease-in-out;
+}
+ .hobby{
+     color:white
+ }
+
+
+
+
+
+
+
+
+
+
+/*-----multi select button for hobbies, position fixed----*/
+span.multiselect-native-select{
+    position: static;
+
+
+}
+
+
+/*----- within the multi select button for hobbies,styling----*/
+span.multiselect-native-select select{
+    overflow:hidden!important;
+    border:0!important;
+    height:1px!important;
+    margin:-1px -1px -1px -3px!important;
+    padding:0!important;
+    width:1px!important;
+    left:50%;
+    color:white;
+}
+
+.multiselect-container{
+    list-style-type:none;
+    padding:0;
+
+}
+
+
+.multiselect-container.dropdown-menu{
+    background-image: linear-gradient(1800deg, #56176B, #180e41 );
+    color:white;
+}
+.multiselect-container .input-group{
+    margin:5px;
+
+}
+.multiselect-container .multiselect-reset .input-group{
+    width:93%
+}
+.multiselect-container>li{
+    padding:0
+}
+.multiselect-container>li>a.multiselect-all label{
+    font-weight:700;
+}
+.multiselect-container>li.multiselect-group label{
+    margin:0;
+    padding:3px 30px;
+    height:100%;
+    font-weight:700;
+}
+.multiselect-container>li.multiselect-group-clickable label{
+    cursor:pointer
+}
+.multiselect-container>li>a{
+    padding:0
+}
+.multiselect-container>li>a>label{
+    margin:0;
+    height:100%;
+    cursor:pointer;
+    font-weight:400;
+    color:white;
+    padding:3px 20px 3px 40px
+}
+.multiselect-container>li>a>label.checkbox,.multiselect-container>li>a>label.radio{
+    margin:0
+}
+.multiselect-container>li>a>label>input[type=checkbox]{
+    margin-bottom:5px
+}
+.btn-group>.btn-group:nth-child(2)>.multiselect.btn{
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+
+}
+.form-inline .multiselect-container label.checkbox,.form-inline .multiselect-container label.radio{
+    padding:3px 20px 3px 40px
+}
+.form-inline .multiselect-container li a label.checkbox input[type=checkbox],.form-inline .multiselect-container li a label.radio input[type=radio]{
+    margin-left:-20px;
+    margin-right:0
+}
+
+li.multiselect-item.multiselect-group {
+     background:#5900a6;
+     margin:0px;
+}
+
+.dropdown-menu>.active>a {
+    background-color:transparent !important;
+}
+
+
+.multiselect-container>li :hover {
+    background-color:transparent !important;
+    transform: scale(1.1);
+}
+
+/*----- button multiple selection of hobbies, this is needed in order to avoid showing the javascript loading----*/
+#option-group-demo
+{
+   display: none
+}
+
+/*-----gender radio buttons----*/
+input[type="radio"], input[type="checkbox"]{
+    margin-right:3px !important;
+}
