@@ -1,0 +1,26 @@
+{% extends "mainapp/base.html" %}
+
+{% block content %}
+	<div class='main'>
+	<h3>Other Members</h3>
+	<ul>
+	{% for member in members %}
+		<li> <a href="{% url 'messages' %}?view={{ member.username }}"> {{ member.username }} </a>
+		{% if member in following %}
+			{% if member in followers %}
+				&harr; is a mutual friend [<a href="?remove={{ member.username }}">drop</a>] </li>
+			{% else %}
+				&larr; you are following [<a href="?remove={{ member.username }}">drop</a>] </li>
+			{% endif %}
+		{% else %}
+			{% if member in followers %}
+				&rarr; is following you [<a href="?add={{ member.username }}">recip</a>] </li>
+			{% else %}
+				[<a href="?add={{ member.username }}">follow</a>] </li>
+			{% endif %}
+		{% endif %}
+	{% endfor %}
+	</ul>
+	<br>
+	</div>
+{% endblock %}

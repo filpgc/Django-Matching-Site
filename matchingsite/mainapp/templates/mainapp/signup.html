@@ -1,0 +1,107 @@
+{% extends "mainapp/base.html" %}
+
+
+{% block content %}
+
+<body>
+<div class="welcome">
+   <h1>JOIN US TODAY</h1>
+   <h3> start matching people with your same hobbies</h3>
+</div>
+<div class="container">
+<!---heading---->
+<header class="heading"> REGISTER</header>
+<hr></hr>
+<!---Form starting---->
+ <form method='POST' action="{% url 'register' %}">
+     {% csrf_token %}
+   <div class="row ">
+      <!--- For Name---->
+      <div class="col-sm-12">
+         <div class="row">
+            <div class="col-xs-4">
+               <label class="fullname">Full Name :</label>
+            </div>
+            <div class="col-xs-8">
+               <input type="text" name="fname" id="fname" placeholder="Enter your First Name" class="form-control ">
+               </div>
+            </div>
+         </div>
+         <div class="col-sm-12">
+            <div class="row">
+               <div class="col-xs-4">
+                  <label class="username">Username :</label>
+               </div>
+               <div class ="col-xs-8">
+                  <input type="text" name="uname" id="uname" placeholder="Enter your Last Name" class="form-control last">
+                  </div>
+               </div>
+            </div>
+            <!-----For email---->
+            <div class="col-sm-12">
+               <div class="row">
+                  <div class="col-xs-4">
+                     <label class="mail" >Email :</label>
+                  </div>
+                  <div class="col-xs-8"   >
+                     <input type="email" name="email"  id="email"placeholder="Enter your email" class="form-control" >
+                     </div>
+                  </div>
+               </div>
+               <!-----For Password and confirm password---->
+               <div class="col-sm-12">
+                  <div class="row">
+                     <div class="col-xs-4">
+                        <label class="fieldname">Password :</label>
+                     </div>
+                     <div class="col-xs-8">
+                        <input type="password" name="password" id="password" placeholder="Enter your Password" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <!----------- For Gender-------->
+                  <div class="col-sm-12">
+                     <div class ="row">
+                        <div class="col-xs-4 ">
+                           <label class="gender">Gender:</label>
+                        </div>
+                        <div class="col-xs-4 male">
+                           <input type="radio" name="gender"  id="gender" value="boy">Male</input>
+                        </div>
+                        <div class="col-xs-4 female">
+                           <input type="radio"  name="gender" id="gender" value="girl" >Female</input>
+                        </div>
+                     </div>
+                            <!----------- For Hobby-------->
+                     <div class="col-sm-12"><
+                        <div class ="row">
+                           <div class="col-xs-4 ">
+                              <label class="hobby">Hobbies:</label>
+                           </div>
+                                    <div class="col-xs-4 ">
+                           <select name ="hobby" id="option-group-demo" multiple="multiple">
+                              <optgroup label="Outdoor">
+                                             {% for out_hobby in outdoor %}
+                                 <option value="{{ out_hobby }}">{{ out_hobby }}</option>
+                                             {% endfor %}
+                              </optgroup>
+                              <optgroup label="Indoor">
+                                 {% for in_hobby in indoor %}
+                                 <option value="{{ in_hobby }}">{{ in_hobby }}</option>
+                                             {% endfor %}
+                              </optgroup>
+
+                           </select>
+                                    </div>
+                           <div class="col-xs-4">
+                                 <input type="submit" class="btn btn-warning"/>
+                                    </div>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </body>
+
+
+{% endblock %}

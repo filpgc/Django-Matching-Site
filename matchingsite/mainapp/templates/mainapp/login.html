@@ -1,0 +1,26 @@
+{% extends "mainapp/base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+   <div class='main'>
+       {% if loggedin %}
+           You are now logged in.
+
+           <br><br>
+       {% else %}
+           <h3>Please enter your details to login</h3>
+           <form method='POST' action="{% url 'login' %}">
+           	{% csrf_token %}
+               <span class='fieldname'>Username</span>
+               <input type='text' maxlength='16' id='logusername' name='username'>
+               <span id='info'></span>
+               <br>
+               <span class='fieldname'>Password</span>
+               <input type='password' maxlength='16' name='password'><br>
+               <span class='fieldname'>&nbsp;</span>
+               <input type='submit' value='Login'>
+           </form>
+       {% endif %}
+   </div>
+{% endblock %}

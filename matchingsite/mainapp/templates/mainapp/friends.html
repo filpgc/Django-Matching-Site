@@ -1,0 +1,26 @@
+{% extends "mainapp/base.html" %}
+
+{% block content %}
+	<div class='main'>
+
+	{% if followers %}
+		<h3>Your followers</h3>
+		<ul>
+		{% for member in followers %}
+			<li> <a href="{% url 'members' %}?view={{member.username}}"> {{member.username}} </a>
+		{% endfor %}
+		</ul>
+	{% endif %}
+
+	{% if following %}
+		<h3>You are following</h3>
+		<ul>
+		{% for member in following %}
+			<li> <a href="{% url 'members' %}?view={{ member.username }}"> {{ member.username }} </a>
+		{% endfor %}
+		</ul>
+	{% endif %}
+	<a class='button' href="{% url 'messages' %}?view={{ username }}">View Your messages</a>
+	<br>
+	</div>
+{% endblock %}

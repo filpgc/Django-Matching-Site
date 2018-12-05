@@ -1,0 +1,13 @@
+{% extends "mainapp/base.html" %}
+
+{% block content %}
+   <span class='info'>&#8658; You must be logged in to view this page.</span>
+   <br>
+   <br>
+   <div class='main'>
+       You have been logged out.
+       Please <a href="{% url 'login' %}">click here</a> to refresh the screen.
+       <br>
+       <br>
+   </div>
+{% endblock %}

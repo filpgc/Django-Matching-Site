@@ -1,0 +1,40 @@
+{% load staticfiles %}
+	<!DOCTYPE html>
+
+<html>
+<head>
+
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="../../static/styles.css">
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+   <link rel="stylesheet" src=https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" type="text/css">
+   <script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js></script><script src="../../static/script.js"></script>
+
+</head>
+<body>
+	<center>
+	<canvas id='logo' width='624' height='96'> {{ appname }} </canvas>
+	</center>
+	{% if loggedin %}
+    <div class='appname'>{{ appname }} ({{ username }}) </div>
+	{% else %}
+    <div class='appname'>{{ appname }}</div>
+   {% endif %}
+	<br>
+
+	<br>
+{% block content %}
+	<br>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="{% static 'mainapp/scripts.js' %}"></script>
+	<script src="{% static 'mainapp/file_upload.js' %}"></script>
+{% endblock %}
+
+
+
+</body>
+</html>
+

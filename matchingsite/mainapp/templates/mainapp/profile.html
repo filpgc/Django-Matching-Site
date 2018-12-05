@@ -1,0 +1,34 @@
+{% extends "mainapp/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class='main'>
+<table>
+<tr>
+   <td>
+      {% if profile.image %}
+      <img id='profile-img' height=150 src='{{profile.image.url}}'></img>
+      {% else %}
+      <img id='profile-img' height=150 src="{% static 'mainapp/profile-image.jpg' %}"></img>
+      {% endif %}
+      <br>
+      <progress id="progressBar" value="0" max="100" style="width:150px;display:none;">
+      </progress>
+   </td>
+   {% if profile.text %}
+   <td>
+      {{ profile.text }} <br style='clear:left;'><br>
+   </td>
+   {% endif %}
+</tr>
+</table>
+<form id='upload_form' method='POST' action="{% url 'profile' %}" enctype='multipart/form-data'>
+  	{% csrf_token %}
+	<h3>Edit profile and/or click on image to update</h3>
+	<textarea name='text' cols='50' rows='3'>{{ profile.text }}</textarea>
+	<br>
+   <input type="file" id="img_file" style="display:none;">
+   <input type='submit' value='Save'>
+</form>
+</div>
+{% endblock %}
