@@ -65,7 +65,7 @@ def register(request):
         print(request.POST['hobby'])
         user = Member(first_name= f, username =u, password =p, email =e)
         try:
-            user.set_password("password")
+            user.set_password(p)
             user.save()
         except IntegrityError: raise Http404('Username '+u+' already taken: Usernames must be unique')
         context = {
