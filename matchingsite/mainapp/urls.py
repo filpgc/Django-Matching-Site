@@ -19,7 +19,7 @@ urlpatterns = [
     # friends page
     #path('friends/', views.friends, name='friends'),
     # user profile edit page
-    #path('profile/', views.profile, name='profile'),
+    path('profile/', views.profile, name='profile'),
     # messages page    # Ajax: check if user exists
     #path('checkuser/', views.checkuser, name='checkuser'),
     # Ajax: post a new message

@@ -14,6 +14,8 @@ from django.core import serializers
 from django.utils import timezone
 from django.contrib.auth.hashers import make_password
 
+
+
 #from mainapp.templatetags.extras import display_message
 
 # datetime library to get time for setting cookie
@@ -63,22 +65,17 @@ def hobbies(request):
 
 def register(request):
     if 'fname' in request.POST and 'uname' in request.POST and 'password' in request.POST:
-        u = request.POST['uname']
-        f = request.POST['fname']
-        p = request.POST['password']
-        e = request.POST['email']
-        print(request.POST.getlist('hobby'))        # gets all the hobbies selected by the user
-        user = Member(first_name = f, username = u, password = p, email = e)
+        dict = retrieve(request)
+        user = Member(username = dict[0],  first_name = dict[1],  email= dict[3])
         try:
-            user.set_password(p)
+            user.set_password(dict[2])
             user.save()
-        except IntegrityError: raise Http404('Username '+u+' already taken: Usernames must be unique')
+        except IntegrityError: raise Http404('Username '+ dict[0]+' already taken: Usernames must be unique')
         context = {
             'appname' : "hobby",
-            'username' : u
+            'username' : dict[0]
         }
         return render(request,'mainapp/user-registered.html',context)
-
 
 
 def login(request):
@@ -120,18 +117,28 @@ def logout(request, user):
     context = { 'appname': appname }
     return render(request,'mainapp/logout.html', context)
 
-#@loggedin
-#def profile(request, user):
-    # use this for debugging:
-    # import pdb; pdb.set_trace()
- #   if request.method='POST':
-  #      form = EditProfileForm(request.POST, instance=request.user)
+@loggedin
+def profile(request, user):
+    user1=Member.objects.filter(username = user)
+    if request.POST:
+        dict = retrieve(request)
+        Member.objects.update( first_name = dict[1], password = dict[2], email= dict[3] )
+        
+    print(user1)
+    dict = {
+        'appname': appname,
+        'email':user1[0].email,
+        'password':user1[0].password,
+        'loggedin': True
+    }
+    return render(request, 'mainapp/profile.html', context = dict)
 
-   #     if form.is_valid():
-     #       form.save()
-    #        return redirect('mainapp/profile')
-    #else
-    #    form= EditProfileForm(instance=request.user)
-    #    args={'form':form}
-    #    return render(request, 'mainapp/profile.html', args)
+
+def retrieve(request):
+    u = request.POST['uname']
+    f = request.POST['fname']
+    p = request.POST['password']
+    e = request.POST['email']   
+    dict = [u,f,p,e]
+    return dict
 

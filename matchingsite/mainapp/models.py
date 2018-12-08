@@ -1,11 +1,9 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-class Profile(models.Model):
-    email = models.EmailField(max_length=4096)
-    image = models.ImageField(upload_to='profile_images')
 
 
+    
 class Hobby(models.Model):
 
     class Meta:
@@ -24,6 +22,8 @@ class Hobby(models.Model):
 
 
 class Member(User):
+ #   image = models.ImageField(upload_to='profile_images')
+
 
     class Meta:
         verbose_name_plural = "User"
@@ -42,9 +42,18 @@ class Member(User):
 
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
 
-    @property
-    def hobbies_count(self):
-        return self.hobby.count()
 
     def __str__(self):
         return self.username
+#    @property
+#    def has_member(self):
+ #       return hasattr(self, 'member') and self.member is not None
+
+    # Either the username of the Member, or NONE
+  #  @property
+ #   def member_check(self):
+   #     return str(self.member) if self.has_member else 'NONE'
+
+   # def __str__(self):
+    #    return self.email + ' (' + self.member_check + ')'
+
