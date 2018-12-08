@@ -6,8 +6,11 @@
    <div class='main'>
        {% if loggedin %}
            You are now logged in.
+            <br>
+        <li><a href="{% url 'logout' %}">Log out</a></li>
+        <li><a href="{% url 'profile' %}">Profile</a></li>
 
-           <br><br>
+           <br>
        {% else %}
            <h3>Please enter your details to login</h3>
            <form method='POST' action="{% url 'login' %}">

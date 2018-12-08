@@ -1,6 +1,9 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+class Profile(models.Model):
+    email = models.EmailField(max_length=4096)
+    image = models.ImageField(upload_to='profile_images')
 
 
 class Hobby(models.Model):
@@ -38,6 +41,10 @@ class Member(User):
     )
 
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+
+    @property
+    def hobbies_count(self):
+        return self.hobby.count()
 
     def __str__(self):
         return self.username
