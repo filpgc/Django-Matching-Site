@@ -11,8 +11,6 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 
 from django.core import serializers
-
-from .forms import RegistrationForm
 from django.utils import timezone
 from django.contrib.auth.hashers import make_password
 
@@ -28,7 +26,7 @@ appname='matchingsite'
 def loggedin(view):
     def mod_view(request):
         if 'username' in request.session:
-            username = request.session['uname']
+            username = request.session['username']
             try: user = Member.objects.get(username=username)
             except Member.DoesNotExist: raise Http404('Member does not exist')
             return view(request, user)
@@ -110,5 +108,18 @@ def logout(request, user):
     context = { 'appname': appname }
     return render(request,'mainapp/logout.html', context)
 
+#@loggedin
+#def profile(request, user):
+    # use this for debugging:
+    # import pdb; pdb.set_trace()
+ #   if request.method='POST':
+  #      form = EditProfileForm(request.POST, instance=request.user)
 
+   #     if form.is_valid():
+     #       form.save()
+    #        return redirect('mainapp/profile')
+    #else
+    #    form= EditProfileForm(instance=request.user)
+    #    args={'form':form}
+    #    return render(request, 'mainapp/profile.html', args)
 
