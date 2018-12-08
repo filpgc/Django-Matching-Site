@@ -28,7 +28,7 @@ class Member(User):
     hobby = models.ManyToManyField(
         to=Hobby,
         blank=False,
-        symmetrical=False,
+        symmetrical=False
     )
 
     GENDER_CHOICES = (

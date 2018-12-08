@@ -29,7 +29,7 @@
      color: white;
      margin: 0 auto;
      text-align: center;
-     margin-top:80px;
+     margin-top:70px;
      opacity: 0.8;
      max-width: 700px;
      padding-top: 10px;
@@ -46,7 +46,7 @@ and (max-device-width: 600px)
 
 
 
-/*--- for label of first and last name---*/
+/*--- for label of username and fullname---*/
  .username{
      margin-left: 1px;
      font-family: sans-serif;
@@ -80,7 +80,7 @@ and (max-device-width: 600px)
 /*-----------for Password--------*/
 /*-------label-----*/
  .mail{
-     margin-left: 44px;
+     margin-left: 32px;
      font-family: sans-serif;
      color: white;
      font-size: 14px;
@@ -97,21 +97,21 @@ and (max-device-width: 600px)
  #password{
      margin-top: 6px;
 }
-/*------------for phone Number--------*/
-/*----------label--------*/
- .pno{
-     font-size: 18px;
-     margin-left: -13px;
-     margin-top: 10px;
-     color: #ff9;
-}
+ .password{
+     color: white;
+     font-family: sans-serif;
+     font-size: 14px;
+     margin-left: 4px;
+     margin-top: 8px;
+ }
+
 /*--------------for Gender---------------*/
-/*--------------label---------*/
+
  .gender {
      color: white;
      font-family: sans-serif;
      font-size: 14px;
-     margin-left: 28px;
+     margin-left: 23px;
      margin-top: 8px;
 }
 /*---------- for Input type--------*/
@@ -127,26 +127,19 @@ and (max-device-width: 600px)
 
      padding-right: 60px;
 }
-/*------------For submit button---------
- .sbutton{
-     color: white;
-     font-size: 20px;
-     border: 1px solid white;
-     background-color: #080808;
-     width: 32%;
-     box-shadow: 0px 2px 2px 0px white;
 
-}
-*/
+ .hobby{
+     color:white
+ }
+
+
+ /*---------- Submit button hover animation--------*/
  .btn.btn-warning:hover {
      box-shadow: 2px 1px 2px 3px #99ccff;
      background:#5900a6;
      color:#fff;
      transition: background-color 1.15s ease-in-out,border-color 1.15s ease-in-out,box-shadow 1.15s ease-in-out;
 }
- .hobby{
-     color:white
- }
 
 
 

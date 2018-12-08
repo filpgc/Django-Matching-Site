@@ -25,6 +25,9 @@ import sys
 
 appname='matchingsite'
 
+
+
+#decorator
 def loggedin(view):
     def mod_view(request):
         if 'username' in request.session:
@@ -41,19 +44,23 @@ def index(request):
     context = { 'appname': appname }
     return render(request,'mainapp/index.html',context)
 
+
 def signup(request):
     context = { 'appname': appname }
     return render(request,'mainapp/signup.html',context)
+
+
 def hobbies(request):
-    total=Hobby.objects.all()
-    outdoor=total.filter(category="Out")
-    indoor =total.filter(category='In')
+    total=Hobby.objects.all()       # Querydict all the hobbies
+    outdoor=total.filter(category="Out")            # hobbies filtered by category outdoor
+    indoor =total.filter(category='In')             # hobbies filtered by category indoor
     dict = {
         'hobby': total,
         'outdoor' : outdoor,
         'indoor' : indoor
     }
-    return render(request, "mainapp/signup.html", context = dict)
+    return render(request, "mainapp/signup.html", context=dict)
+
 
 
 def register(request):
@@ -62,8 +69,8 @@ def register(request):
         f = request.POST['fname']
         p = request.POST['password']
         e = request.POST['email']
-        print(request.POST['hobby'])
-        user = Member(first_name= f, username =u, password =p, email =e)
+        print(request.POST.getlist('hobby'))        # gets all the hobbies selected by the user
+        user = Member(first_name = f, username = u, password = p, email = e)
         try:
             user.set_password(p)
             user.save()
@@ -73,6 +80,8 @@ def register(request):
             'username' : u
         }
         return render(request,'mainapp/user-registered.html',context)
+
+
 
 def login(request):
     if not ('username' in request.POST and 'password' in request.POST):
@@ -103,6 +112,9 @@ def login(request):
             return response
         else:
             raise Http404('Wrong password')
+
+
+
 
 @loggedin
 def logout(request, user):
