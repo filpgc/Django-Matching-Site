@@ -70,12 +70,17 @@ def register(request):
         try:
             user.set_password(dict[2])
             user.save()
+            for hobby in dict[4]:  # dict[4] is the list of hobbies
+                hob, _ = Hobby.objects.get_or_create(name=hobby)
+                user.hobby.add(hob)
         except IntegrityError: raise Http404('Username '+ dict[0]+' already taken: Usernames must be unique')
         context = {
             'appname' : "hobby",
             'username' : dict[0]
         }
         return render(request,'mainapp/user-registered.html',context)
+
+
 
 
 def login(request):
@@ -117,28 +122,39 @@ def logout(request, user):
     context = { 'appname': appname }
     return render(request,'mainapp/logout.html', context)
 
+
 @loggedin
 def profile(request, user):
     user1=Member.objects.filter(username = user)
     if request.POST:
         dict = retrieve(request)
-        Member.objects.update( first_name = dict[1], password = dict[2], email= dict[3] )
-        
-    print(user1)
+        Member.objects.update(first_name = dict[1], password = dict[2], email= dict[3])
+        user.hobby.clear()
+        for hobby in dict[4]:  # dict[4] is the list of hobbies
+            hob, _ = Hobby.objects.get_or_create(name=hobby)
+            user.hobby.add(hob)
+
+    total = Hobby.objects.all()  # Querydict all the hobbies
+    outdoor = total.filter(category="Out")  # hobbies filtered by category outdoor
+    indoor = total.filter(category='In')  # hobbies filtered by category indoor
     dict = {
         'appname': appname,
         'email':user1[0].email,
         'password':user1[0].password,
-        'loggedin': True
+        'loggedin': True,
+        'outdoor': outdoor,
+        'indoor': indoor
     }
     return render(request, 'mainapp/profile.html', context = dict)
 
 
+# retrieve all the fields passed in the request
 def retrieve(request):
     u = request.POST['uname']
     f = request.POST['fname']
     p = request.POST['password']
-    e = request.POST['email']   
-    dict = [u,f,p,e]
+    e = request.POST['email']
+    h = request.POST.getlist('hobby')
+    dict = [u,f,p,e,h]      # creates an array containing all the fields
     return dict
 
