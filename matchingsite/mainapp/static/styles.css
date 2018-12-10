@@ -7,7 +7,7 @@
      height:150vh;
      overflow:auto;
      font-family:Roboto,sans-serif;
-     color: white
+     color: white;
 }
 /*-----for border----*/
  .container{
@@ -22,18 +22,62 @@
      padding-top: 10px;
      height: 400px;
 }
+
+ /*-----for border----*/
+ .container2{
+     background-image: linear-gradient(1800deg, #340e41, #180e41 );
+     border-style: 1px solid grey;
+     margin: 0 auto;
+     text-align: center;
+     opacity: 0.8;
+     border: 1px solid white;
+     margin-top: 30px;
+     padding-right:20px;
+     max-width: 550px;
+     padding-top: 30px;
+     height: 520px;
+}
+
+  /*-----for border----*/
+.container_welcome{
+     background-image: linear-gradient(1800deg, #340e41, #180e41 );
+     border-style: 1px solid grey;
+     margin: 0 auto;
+     text-align: center;
+     opacity: 0.8;
+     margin-top: 30px;
+     padding-right:20px;
+     max-width: 550px;
+     padding-top: 30px;
+     height: 300px;
+}
  .boot{
      color:white;
 }
+
+  /*------------For Index Page (Welcome page)---------*/
+
+
  .welcome{
      color: white;
      margin: 0 auto;
      text-align: center;
-     margin-top:70px;
+     margin-top:20px;
      opacity: 0.8;
      max-width: 700px;
      padding-top: 10px;
 }
+
+ .welcome_heading{
+        color:mediumpurple;
+
+ }
+
+ .welcome_subheading{
+         color: white;
+ }
+
+
 
  /*------------Only on mobile---------*/
 @media only screen
@@ -73,12 +117,10 @@ and (max-device-width: 600px)
      padding-top:10px;
 }
 /*-------for email----------*/
-/*------label----*/
  #email{
      margin-top: 5px;
 }
-/*-----------for Password--------*/
-/*-------label-----*/
+
  .mail{
      margin-left: 32px;
      font-family: sans-serif;
@@ -86,6 +128,9 @@ and (max-device-width: 600px)
      font-size: 14px;
      margin-top: 13px;
 }
+
+/*-----------for Password--------*/
+
  .pass{
      color: white;
      margin-top: 9px;
@@ -134,6 +179,8 @@ and (max-device-width: 600px)
 
 
  /*---------- Submit button hover animation--------*/
+
+
  .btn.btn-warning:hover {
      box-shadow: 2px 1px 2px 3px #99ccff;
      background:#5900a6;

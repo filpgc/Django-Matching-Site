@@ -125,10 +125,10 @@ def logout(request, user):
 
 @loggedin
 def profile(request, user):
-    user1=Member.objects.filter(username = user)
+    user1=Member.objects.filter(username = user)        #QuerySet object
     if request.POST:
         dict = retrieve(request)
-        Member.objects.update(first_name = dict[1], password = dict[2], email= dict[3])
+        user1.update(first_name = dict[1], password = dict[2], email= dict[3])
         user.hobby.clear()
         for hobby in dict[4]:  # dict[4] is the list of hobbies
             hob, _ = Hobby.objects.get_or_create(name=hobby)
@@ -139,8 +139,10 @@ def profile(request, user):
     indoor = total.filter(category='In')  # hobbies filtered by category indoor
     dict = {
         'appname': appname,
-        'email':user1[0].email,
+        'email': user1[0].email,
         'password':user1[0].password,
+        'username': user1[0].username,
+        'fullname': user1[0].first_name,
         'loggedin': True,
         'outdoor': outdoor,
         'indoor': indoor

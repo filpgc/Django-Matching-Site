@@ -45,15 +45,3 @@ class Member(User):
 
     def __str__(self):
         return self.username
-#    @property
-#    def has_member(self):
- #       return hasattr(self, 'member') and self.member is not None
-
-    # Either the username of the Member, or NONE
-  #  @property
- #   def member_check(self):
-   #     return str(self.member) if self.has_member else 'NONE'
-
-   # def __str__(self):
-    #    return self.email + ' (' + self.member_check + ')'
-

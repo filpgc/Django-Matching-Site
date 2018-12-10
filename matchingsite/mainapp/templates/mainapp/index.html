@@ -1,20 +1,29 @@
 {% extends "mainapp/base.html" %}
 
 {% block content %}
-	<span class='info'>&#8658; You must be logged in to view this page.</span>
+<div class="container_welcome">
+	<h2 class='welcome_heading'>Welcome to HobMatch</h2>
 	<br>
 	<br>
-		<ul class='menu'>
+
 		{% if loggedin %}
-        <li><a href="{% url 'logout' %}">Log out</a></li>
+		<form>
+		  <button  class="btn btn-warning" formaction="{% url 'logout' %}">Log out</button>
+		</form>
 		{% else %}
-		  <li><a href="{% url 'signup' %}">Sign up</a></li>
-		  <li><a href="{% url 'login' %}">Log in</a></li>
+		<form>
+		  <button style="width:100px" class="btn btn-warning" formaction="{% url 'login' %}">Log in</button>
+
+		  <button  style="width:100px" class="btn btn-warning" formaction="{% url 'signup' %}">Sign up</button>
+		</form>
+
+
 		{% endif %}
-	</ul>
-	<br>
-	<span class='main'>
+		<br>
+
+	<span class='welcome_subheading'>
 		Welcome to {{ appname }}, please sign up and/or log in to join in.
 	</span>
 	<br>
+</div>
 {% endblock %}

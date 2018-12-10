@@ -1,80 +1,82 @@
-{% extends "mainapp/base.html" %}
-{% load static %}
+{% extends "mainapp/base.html" %} {% load static %} {% block content %}
 
-{% block content %}
 <div class='main'>
-<table>
-<tr>
-   <td>
-      {% if profile.image %}
-      <img id='profile-img' height=150 src='{{profile.image.url}}'></img>
-      {% else %}
-      <img id='profile-img' height=150 src="{% static 'mainapp/profile-image.jpg' %}"></img>
-      {% endif %}
-      <br>
-      <progress id="progressBar" value="0" max="100" style="width:150px;display:none;">
-      </progress>
-   </td>
-   {% if profile.text %}
-   <td>
-      {{ profile.text }} <br style='clear:left;'><br>
-   </td>
-   {% endif %}
-</tr>
-</table>
-<form id='upload_form' method='POST' action="{% url 'profile' %}" enctype='multipart/form-data'>
-   {% csrf_token %}
-   <h3>Edit profile and/or click on image to update</h3>
-      <div class="row ">
-      <!--- For Name---->
-      <div class="col-sm-12">
-         <div class="row">
-            <div class="col-xs-4">
-               <label class="fullname">Full Name :</label>
-            </div>
-            <div class="col-xs-8">
-               <input type="text" name="fname" id="fname" placeholder="Enter your First Name" class="form-control ">
-               </div>
-            </div>
-         </div>
-      </div>
-    <div class="col-sm-12">
-            <div class="row">
-               <div class="col-xs-4">
-                  <label class="username">Username :</label>
-               </div>
-               <div class ="col-xs-8">
-                  <input type="text" name="uname" id="uname" placeholder="Enter your Last Name" class="form-control last">
-                  </div>
-               </div>
+    <div class="welcome">
+        <h1>EDIT</h1>
+        <h3>Edit profile and/or click on image to update</h3>
+    </div>
+    <div class="container2">
+        <div class="row ">
+        <!----------- For Profile Pic-------->
+            <div class="col-sm-12">
+
+                {% if profile.image %}
+
+                <img id='profile-img' height=150 src='{{profile.image.url}}'></img>
+                {% else %}
+
+                <img id='profile-img' height=150 src="{% static 'mainapp/profile-image.jpg' %}"></img>
+                {% endif %}
+
+                <br>
+                <progress id="progressBar" value="0" max="100" style="width:150px;display:none;"></progress>
+                <h2 class="username"> {{fullname}} </h2>
+                <br>
             </div>
 
+        </div>
+
+         <!-----For Form---->
+        <form id='upload_form' method='POST' action="{% url 'profile' %}" enctype='multipart/form-data'>
+            {% csrf_token %}
+
+            <div class="row ">
+                <!--- For Name---->
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label class="fullname">Full Name :</label>
+                        </div>
+                        <div class="col-xs-8">
+                            <input type="text" name="fname" id="fname" value={{ fullname }} class="form-control">
+                        </div>
+
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <label class="username">Username :</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input type="text" name="uname" id="uname" placeholder="{{username}}" class="form-control last" required readonly>
+                    </div>
+                </div>
+            </div>
             <!-----For email---->
             <div class="col-sm-12">
-               <div class="row">
-                  <div class="col-xs-4">
-                     <label class="mail" >Email :</label>
-                  </div>
-                  <div class="col-xs-8"   >
-                     <input type="email" name="email"  id="email"value={{email}} class="form-control" >
-                     </div>
-                  </div>
-               </div>
-               <!-----For Password---->
-               <div class="col-sm-12">
-                  <div class="row">
-                     <div class="col-xs-4">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <label class="mail">Email :</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input type="email" name="email" id="email" value={{email}} class="form-control">
+                    </div>
+                </div>
+            </div>
+            <!-----For Password---->
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-xs-4">
                         <label class="password">Password :</label>
-                     </div>
-                     <div class="col-xs-8">
+                    </div>
+                    <div class="col-xs-8">
                         <input type="password" name="password" id="password" placeholder="Enter your New Password" class="form-control">
-                        </div>
-                     </div>
-                  </div>
-
-
-                                        <!----------- For Hobby-------->
-                     <div class="col-sm-12"><
+                    </div>
+                </div>
+            </div>
+            <!----------- For Hobby-------->
+            <div class="col-sm-12"><
                         <div class ="row">
                            <div class="col-xs-4 ">
                               <label class="hobby">Hobbies:</label>
@@ -94,10 +96,14 @@
 
                            </select>
                                     </div>
+                           <div class="col-xs-4">
+                                 <input type="submit" value="Edit" class="btn btn-warning"/>
+                                    </div>
+                           </div>
+                        </div>
+        </form>
+         <!-----End form---->
 
-               </div>
-         <input type="file" id="img_file" style="display:none;">
-   <input type='submit' value='Save'/>
-</form>
-</div>
-{% endblock %}
+        </div>
+    </div>
+    {% endblock %}
