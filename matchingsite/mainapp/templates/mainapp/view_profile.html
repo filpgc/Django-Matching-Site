@@ -1,0 +1,17 @@
+{% extends "mainapp/base.html" %}
+
+{% block content %}
+   <div class='main'>
+   <h3>{{ greeting }} Profile</h3>
+   {% if profile %}
+      {% if profile.image %}
+      <img height=150 src='{{profile.image.url}}'></img>
+      <br>
+      {% endif %}
+      {{ profile.text }} <br style='clear:left;'><br>
+   {% endif %}
+   <a class='button' href="{% url 'messages' %}?view={{ view_user }}">View {{ greeting }} messages</a>
+   <br>
+   <br>
+   </div>
+{% endblock %}

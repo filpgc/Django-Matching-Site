@@ -128,8 +128,11 @@ def profile(request, user):
     user1=Member.objects.filter(username = user)        #QuerySet object
     if request.POST:
         dict = retrieve(request)
-        user1.update(first_name = dict[1], password = dict[2], email= dict[3])
-        user.hobby.clear()
+        user.set_password(dict[2]) #hashes password after editing
+        user.save()# needed in order to save hashed password
+
+        user1.update(first_name = dict[1], email= dict[3]) #updates the fullname and email
+        user.hobby.clear() # clears hobby
         for hobby in dict[4]:  # dict[4] is the list of hobbies
             hob, _ = Hobby.objects.get_or_create(name=hobby)
             user.hobby.add(hob)
