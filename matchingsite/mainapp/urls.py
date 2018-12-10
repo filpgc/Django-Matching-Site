@@ -14,6 +14,8 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     # logout page
     path('logout/', views.logout, name='logout'),
+    #selects the current hobbies
+    path('hobby/', views.hobby, name='hobby'),
     # members page
     #path('members/', views.members, name='members'),
     # friends page
@@ -26,6 +28,8 @@ urlpatterns = [
     # Ajax: delete a message
     # Ajax: upload new profile image
     #path('uploadimage/', views.upload_image, name='uploadimage'),
+    path('homepage/', views.homepage, name='homepage'),
+
 ]
 
 

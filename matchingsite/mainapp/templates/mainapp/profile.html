@@ -49,7 +49,7 @@
                         <label class="username">Username :</label>
                     </div>
                     <div class="col-xs-8">
-                        <input type="text" name="uname" id="uname" placeholder="{{username}}" class="form-control last" required readonly>
+                        <input type="text" name="uname" id="uname" placeholder="{{username}}" value="{{ username}}" class="form-control last" required readonly>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                               <label class="hobby">Hobbies:</label>
                            </div>
                                     <div class="col-xs-4 ">
-                           <select name ="hobby" id="option-group-demo" multiple="multiple">
+                           <select name ="hobby" id="option-group-edit" class="option-group-demo" multiple="multiple">
                               <optgroup label="Outdoor">
                                              {% for out_hobby in outdoor %}
                                  <option value="{{ out_hobby }}">{{ out_hobby }}</option>

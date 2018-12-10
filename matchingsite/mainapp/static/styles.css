@@ -38,7 +38,27 @@
      height: 520px;
 }
 
-  /*-----for border----*/
+ .container_homepage{
+     background-image: linear-gradient(1800deg, #340e41, white);
+     border-style: 1px solid grey;
+     margin: 0 auto;
+     text-align: center !important;
+     opacity: 0.8;
+     border: 1px solid white;
+     margin-top: 30px;
+     padding-right:20px;
+     max-width: 900px;
+     padding-top: 30px;
+     height: 900px;
+ }
+
+ .boot{
+     color:white;
+}
+
+  /*------------For Index Page (Welcome page)---------*/
+
+
 .container_welcome{
      background-image: linear-gradient(1800deg, #340e41, #180e41 );
      border-style: 1px solid grey;
@@ -51,12 +71,6 @@
      padding-top: 30px;
      height: 300px;
 }
- .boot{
-     color:white;
-}
-
-  /*------------For Index Page (Welcome page)---------*/
-
 
  .welcome{
      color: white;
