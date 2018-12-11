@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import Http404
 from mainapp.models import Member, Hobby, User
 from django.db import IntegrityError
-
 from django.http import HttpResponse
 from django.template import loader
 from django.template import RequestContext, loader
@@ -168,7 +167,23 @@ def hobby(request, user):
     return JsonResponse(context, safe=False)
 
 
+@loggedin
+def homepage(request, user):
+    context = { "appname" : appname}
+    members = Member.objects.all()
+    user_hobbies = user.hobby.all()
+    print(user_hobbies)
+    count  = {}
+    current = 0
+    for x in members:
+        for y in user_hobbies:
+            for z in x.hobby.all():
+                if y == z:
+                    current = current + 1
 
-def homepage(request):
-    context = {'appname': appname}
+        count[str(x.username)]=current
+        current = 0
+        print(x.hobby.all())
+    sort = sorted(count.items(), key=lambda x: x[1], reverse = True)
+    print (sort)
     return render(request, 'mainapp/homepage.html', context)

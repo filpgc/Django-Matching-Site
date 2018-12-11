@@ -321,7 +321,7 @@ li.multiselect-item.multiselect-group {
 }
 
 /*----- button multiple selection of hobbies, this is needed in order to avoid showing the javascript loading----*/
-#option-group-demo
+.option-group-demo
 {
    display: none
 }
