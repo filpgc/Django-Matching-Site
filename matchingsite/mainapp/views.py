@@ -185,9 +185,14 @@ def homepage(request, user):
                 if y == z:
                     current = current + 1
 
-        count[str(x.username)]=current
+        count[str(x)]=current
         current = 0
         print(x.hobby.all())
+    print(count)
     sort = sorted(count.items(), key=lambda x: x[1], reverse = True)
-    print (sort)
+    print(sort)
+    context = {
+        "members": sort
+    }
+   # context = serializers.serialize('json', sort)
     return render(request, 'mainapp/homepage.html', context)

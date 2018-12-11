@@ -24,17 +24,26 @@
      height: 400px;
 }
 
+ .welcome{
+     color: white;
+     margin: 0 auto;
+     text-align: center;
+     margin-top: 60px;
+     opacity: 0.8;
+     max-width: 900px;
+     padding-top: -100px;
+}
 
 
-  /*------------For Profile---------*/
- .gianni{
+  /*------------ Start For Profile---------*/
+ .break_line{
     border: none;
     height: 2.5px;
     color: black;
     background-color: black;
-     padding-right:0px!important;
 
 }
+
  #information_title{
      padding-top: -10px;
      margin-top: -5px;
@@ -56,9 +65,63 @@
      padding-right:20px;
      max-width: 550px;
      padding-top: 30px;
-     height: 520px;
+     height: 650px;
 
 }
+   /*------------End For Profile---------*/
+
+   /*------------ Start Login---------*/
+ .container_login{
+     background-image: linear-gradient(1800deg, #340e41, #180e41 );
+     margin: 0 auto;
+     text-align: center;
+     opacity: 0.8;
+     border: 5px solid black;
+     border-radius: 20px;
+     max-width: 400px;
+     height: 440px;
+
+}
+
+  .sub_container_login{
+     background-color: #180e41;
+      margin: 0 auto;
+      text-align: center;
+     opacity: 0.8;
+      border-bottom: 5px solid black;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-top: 1px solid black;
+     max-width: 400px;
+     height: 80px;
+
+}
+
+ #Sub_container_title {
+     padding-top: -10px;
+     margin-top: 20px;
+     color: white;
+     font-size: 30px;
+     font-weight: bold;
+
+ }
+
+ .login_field{
+    border:none;
+     outline:none;
+     margin-top: 20px;
+     background: transparent;
+     width: 250px;
+     height: 50px;
+     border-bottom: 1px solid #fff;
+     color:white;
+     font-size: 25px;
+     max-width: 1000px;
+
+ }
+
+
+  /*------------ End Login---------*/
 
 
 
@@ -74,46 +137,64 @@
      opacity: 0.8;
      border: 1px solid white;
      margin-top: 30px;
-     padding-right:20px;
      max-width: 900px;
      padding-top: 30px;
      height: 900px;
  }
 
-  /*------------For Index Page (Welcome page)---------*/
+  /*------------Start Index Page (Welcome page)---------*/
 
 
 .container_welcome{
-     background-image: linear-gradient(1800deg, #340e41, #180e41 );
      border-style: 1px solid grey;
      margin: 0 auto;
      text-align: center;
      opacity: 0.8;
-     margin-top: 30px;
+     margin-top: 100px;
      padding-right:20px;
-     max-width: 550px;
      padding-top: 30px;
      height: 300px;
 }
- .welcome{
-     color: white;
-     margin: 0 auto;
-     text-align: center;
-     margin-top: 0px;
-     opacity: 0.8;
-     max-width: 700px;
-     padding-top: -100px;
-}
 
- .welcome_heading{
-        color:mediumpurple;
+.welcome_heading {
+     color: White;
+     text-shadow: 3px 5px #4f4f4f;
+     font-family: montserrat;
+	 font-size: 90px;
+     animation: fadeAndScale .3s ease-in;
+	 transform-origin: center bottom;
 
  }
 
  .welcome_subheading{
          color: white;
+         font-size: xx-large
+			 ;
  }
 
+  .welcome_subsubheading{
+         color: white;
+         font-size: smaller;
+ }
+  /*------------Animation---------*/
+
+@keyframes fadeAndScale{
+	from{
+		opacity: 0;
+		transform: scale3d(.75, .75, 1);
+	}
+	to{
+		opacity: 1;
+		transform: scale3d(1, 1, 1)
+	}
+}
+
+ .animation {
+     animation: fadeAndScale 1s;
+
+ }
+
+   /*------------End Index Page (Welcome page)---------*/
 
 
  /*------------Only on mobile---------*/
@@ -151,13 +232,15 @@ and (max-device-width: 600px)
      color:white;
      padding-top:10px;
 }
-/*-------for email----------*/
- #email, #datepicker{
+
+
+/*-------email, age bar ----------*/
+ #email{
      margin-top: 5px;
 
 }
-
- .mail, .age{
+/*-------email, age label ----------*/
+ .mail{
      margin-left: 32px;
      color: white;
      font-size: 14px;
@@ -165,7 +248,7 @@ and (max-device-width: 600px)
 
 }
 
-/*-----------for Password--------*/
+/*-----------Password--------*/
 
  .pass{
      color: white;
