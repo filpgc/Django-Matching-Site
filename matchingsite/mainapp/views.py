@@ -63,7 +63,7 @@ def hobbies(request):
 def register(request):
     if 'fname' in request.POST and 'uname' in request.POST and 'password' in request.POST:
         dict = retrieve(request)
-        user = Member(username=dict[0], first_name=dict[1], email=dict[3])
+        user = Member(username=dict[0], first_name=dict[1], email=dict[3], dob=dict[5])
         try:
             user.set_password(dict[2])
             user.save()
@@ -156,7 +156,9 @@ def retrieve(request):
     p = request.POST['password']
     e = request.POST['email']
     h = request.POST.getlist('hobby')
-    dict = [u, f, p, e, h]  # creates an array containing all the fields
+    d = request.POST['dob']
+    print(d)  
+    dict = [u, f, p, e, h,d]  # creates an array containing all the fields
     return dict
 
 @loggedin
@@ -166,6 +168,8 @@ def hobby(request, user):
     context = serializers.serialize('json', hobby)
     return JsonResponse(context, safe=False)
 
+#def getYearBorn(age):
+#    return int((datetime.now().year-int(age)))
 
 @loggedin
 def homepage(request, user):

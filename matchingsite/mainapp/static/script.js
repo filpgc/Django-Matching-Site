@@ -18,7 +18,9 @@ $(function() {
    });
 
 
-
+    $( "#datepicker" ).datepicker({
+     format: 'yyyy-mm-dd',
+   });
 
 
     $('.option-group-demo').multiselect({

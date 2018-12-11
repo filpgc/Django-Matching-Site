@@ -152,12 +152,12 @@ and (max-device-width: 600px)
      padding-top:10px;
 }
 /*-------for email----------*/
- #email{
+ #email, #datepicker{
      margin-top: 5px;
 
 }
 
- .mail{
+ .mail, .age{
      margin-left: 32px;
      color: white;
      font-size: 14px;

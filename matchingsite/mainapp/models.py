@@ -23,6 +23,8 @@ class Hobby(models.Model):
 
 class Member(User):
  #   image = models.ImageField(upload_to='profile_images')
+    image = models.ImageField(upload_to='profile_images')
+    dob = models.DateField(max_length=8, null=True, blank=False)
 
 
     class Meta:
@@ -31,6 +33,11 @@ class Member(User):
     hobby = models.ManyToManyField(
         to=Hobby,
         blank=False,
+        symmetrical=False
+    )
+    following = models.ManyToManyField(
+        to='self'   ,
+        blank=True,
         symmetrical=False
     )
 
@@ -42,6 +49,12 @@ class Member(User):
 
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
 
+#@property
+#    def age(self):
+#    if self.dob is not None:
+#        return int((datetime.now().year - self.dob.year))
+#    else
+#       return "DOB NOT SPECIFIED"
 
     def __str__(self):
         return self.username

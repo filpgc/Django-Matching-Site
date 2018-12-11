@@ -3,7 +3,7 @@ from .models import *
 
 
 class MemberAdmin(admin.ModelAdmin):
-    fields = ('username','first_name','password','email','gender','hobby')
+    fields = ('username','first_name','password','image','dob','following','email','gender','hobby')
     list_display = ('username','password')
     ordering = ['username']
 
