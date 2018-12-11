@@ -2,14 +2,19 @@
 
 <div class='main'>
     <div class="welcome">
-        <h1>EDIT</h1>
-        <h3>Edit profile and/or click on image to update</h3>
+        <!-----Sentences above---->
+        <h1>Hello {{ fullname }}! This is your profile page. </h1>
+
     </div>
     <div class="container2">
         <div class="row ">
-        <!----------- For Profile Pic-------->
-            <div class="col-sm-12">
 
+        <h3 id="information_title">Profile information</h3>
+            <br>
+        <!-----------Container-------->
+            <div class="col-sm-12">
+            <!-----------Profile Pic-------->
+            <div class = col-xs-4>
                 {% if profile.image %}
 
                 <img id='profile-img' height=150 src='{{profile.image.url}}'></img>
@@ -17,14 +22,25 @@
 
                 <img id='profile-img' height=150 src="{% static 'mainapp/profile-image.jpg' %}"></img>
                 {% endif %}
-
+            </div>
+            <!-----------Information-------->
+            <div class="col-xs-8">
                 <br>
                 <progress id="progressBar" value="0" max="100" style="width:150px;display:none;"></progress>
-                <h2 class="username"> {{fullname}} </h2>
-                <br>
+                <h1 class="username" align="left"> Full name: {{fullname}} </h1>
+                <h2 class="username" align="left"> Age: </h2>
+                <h2 class="username" align="left"> Email: {{email}}</h2>
+                <h2 class="username" align="left"> Username: {{username}} </h2>
+
+
+            </div>
             </div>
 
+
         </div>
+         <br>
+        <!-----This break needs to be fixed. No padding needed---->
+        <hr class="gianni" />
 
          <!-----For Form---->
         <form id='upload_form' method='POST' action="{% url 'profile' %}" enctype='multipart/form-data'>
@@ -38,7 +54,8 @@
                             <label class="fullname">Full Name :</label>
                         </div>
                         <div class="col-xs-8">
-                            <input type="text" name="fname" id="fname" value={{ fullname }} class="form-control">
+                            <!-----To show first and last name together, fullname needs to be quoted---->
+                            <input type="text" name="fname" id="fname" value="{{fullname}}" class="form-control">
                         </div>
 
                 </div>
@@ -49,7 +66,7 @@
                         <label class="username">Username :</label>
                     </div>
                     <div class="col-xs-8">
-                        <input type="text" name="uname" id="uname" placeholder="{{username}}" value="{{ username}}" class="form-control last" required readonly>
+                        <input type="text" name="uname" id="uname" placeholder="{{username}}"  value="{{ username}}"  class="form-control last" required readonly>
                     </div>
                 </div>
             </div>

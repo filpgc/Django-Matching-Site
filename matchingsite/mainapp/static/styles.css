@@ -6,8 +6,9 @@
      width:100%;
      height:150vh;
      overflow:auto;
-     font-family:Roboto,sans-serif;
+     font-family: Montserrat!important;
      color: white;
+
 }
 /*-----for border----*/
  .container{
@@ -23,19 +24,46 @@
      height: 400px;
 }
 
- /*-----for border----*/
+
+
+  /*------------For Profile---------*/
+ .gianni{
+    border: none;
+    height: 2.5px;
+    color: black;
+    background-color: black;
+     padding-right:0px!important;
+
+}
+ #information_title{
+     padding-top: -10px;
+     margin-top: -5px;
+     color: white;
+     font-size: 30px;
+     font-weight: bold;
+
+ }
+
  .container2{
      background-image: linear-gradient(1800deg, #340e41, #180e41 );
      border-style: 1px solid grey;
      margin: 0 auto;
      text-align: center;
      opacity: 0.8;
-     border: 1px solid white;
+     border: 5px solid black;
+     border-radius: 20px;
      margin-top: 30px;
      padding-right:20px;
      max-width: 550px;
      padding-top: 30px;
      height: 520px;
+
+}
+
+
+
+ .boot{
+     color:white;
 }
 
  .container_homepage{
@@ -52,10 +80,6 @@
      height: 900px;
  }
 
- .boot{
-     color:white;
-}
-
   /*------------For Index Page (Welcome page)---------*/
 
 
@@ -71,15 +95,14 @@
      padding-top: 30px;
      height: 300px;
 }
-
  .welcome{
      color: white;
      margin: 0 auto;
      text-align: center;
-     margin-top:20px;
+     margin-top: 0px;
      opacity: 0.8;
      max-width: 700px;
-     padding-top: 10px;
+     padding-top: -100px;
 }
 
  .welcome_heading{
@@ -107,14 +130,12 @@ and (max-device-width: 600px)
 /*--- for label of username and fullname---*/
  .username{
      margin-left: 1px;
-     font-family: sans-serif;
      font-size: 14px;
      color: white;
      margin-top: 10px;
 }
  .fullname{
      margin-left: 1px;
-     font-family: sans-serif;
      font-size: 14px;
      color: white;
      margin-top: 5px;
@@ -133,14 +154,15 @@ and (max-device-width: 600px)
 /*-------for email----------*/
  #email{
      margin-top: 5px;
+
 }
 
  .mail{
      margin-left: 32px;
-     font-family: sans-serif;
      color: white;
      font-size: 14px;
      margin-top: 13px;
+
 }
 
 /*-----------for Password--------*/
@@ -149,7 +171,6 @@ and (max-device-width: 600px)
      color: white;
      margin-top: 9px;
      font-size: 14px;
-     font-family: sans-serif;
      margin-left: 6px;
      margin-top: 9px;
 }
@@ -158,7 +179,6 @@ and (max-device-width: 600px)
 }
  .password{
      color: white;
-     font-family: sans-serif;
      font-size: 14px;
      margin-left: 4px;
      margin-top: 8px;
@@ -168,7 +188,6 @@ and (max-device-width: 600px)
 
  .gender {
      color: white;
-     font-family: sans-serif;
      font-size: 14px;
      margin-left: 23px;
      margin-top: 8px;
@@ -201,14 +220,6 @@ and (max-device-width: 600px)
      color:#fff;
      transition: background-color 1.15s ease-in-out,border-color 1.15s ease-in-out,box-shadow 1.15s ease-in-out;
 }
-
-
-
-
-
-
-
-
 
 
 /*-----multi select button for hobbies, position fixed----*/
