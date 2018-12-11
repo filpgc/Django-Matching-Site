@@ -8,30 +8,19 @@
   <h2>Matches</h2>
   <p>Enjoy your time motherfucker diahane</p>
   <table class="table table-hover">
-
     <thead>
       <tr>
-        <th></th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th class="text-center">Username</th>
+        <th class="text-center">Hobbies in common</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+     {% for username, hobby in members %}
+      <tr href ='{{member.username.url}}'>
+        <td>{{username}}</td>
+        <td>{{hobby}}</td>
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+    {% endfor %}
     </tbody>
   </table>
 </div>
