@@ -2,16 +2,17 @@
 
 <div class='main'>
     <div class="welcome">
-        <!-----Sentences above---->
-        <h1>Hello {{ fullname }}! This is your profile page. </h1>
+        <!-----Welcome Sentences---->
+        <h1>Hello {{ fullname }}! This is your profile page </h1>
 
     </div>
+    <!-----------Container-------->
     <div class="container2">
+        <!-----------Profile Information-------->
         <div class="row ">
 
         <h3 id="information_title">Profile information</h3>
             <br>
-        <!-----------Container-------->
             <div class="col-sm-12">
             <!-----------Profile Pic-------->
             <div class = col-xs-4>
@@ -31,22 +32,22 @@
                 <h2 class="username" align="left"> Age: </h2>
                 <h2 class="username" align="left"> Email: {{email}}</h2>
                 <h2 class="username" align="left"> Username: {{username}} </h2>
-
-
             </div>
             </div>
-
 
         </div>
          <br>
-        <!-----This break needs to be fixed. No padding needed---->
-        <hr class="gianni" />
 
-         <!-----For Form---->
+        <hr class="break_line" /> <!-----This break needs to be fixed. No padding needed---->
+
+         <!-----Edit Profile---->
+
         <form id='upload_form' method='POST' action="{% url 'profile' %}" enctype='multipart/form-data'>
             {% csrf_token %}
 
             <div class="row ">
+            <h3 id="information_title">Edit profile </h3>
+            <br>
                 <!--- For Name---->
                 <div class="col-sm-12">
                     <div class="row">
@@ -57,9 +58,21 @@
                             <!-----To show first and last name together, fullname needs to be quoted---->
                             <input type="text" name="fname" id="fname" value="{{fullname}}" class="form-control">
                         </div>
+                    </div>
+                </div>
+                <!--- Age---->
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label class="age">Age:</label>
+                        </div>
+                        <div class="col-xs-8">
+                            <input type="text" name="age" id="age" placeholder="Your age" class="form-control">
+                        </div>
 
                 </div>
             </div>
+            <!-----Username---->
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-xs-4">
@@ -70,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <!-----For email---->
+            <!-----email---->
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-xs-4">
@@ -81,7 +94,7 @@
                     </div>
                 </div>
             </div>
-            <!-----For Password---->
+            <!-----Password---->
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-xs-4">
