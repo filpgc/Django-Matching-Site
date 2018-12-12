@@ -28,10 +28,13 @@ background: rgb(52,14,65); /* Old browsers */
 background: -moz-linear-gradient(left,  rgba(52,14,65,1) 0%, rgba(0,0,0,1) 19%, rgba(0,0,0,1) 76%, rgba(52,14,65,1) 100%); /* FF3.6-15 */
 background: -webkit-linear-gradient(left,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgba(0,0,0,1) 76%,rgba(52,14,65,1) 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgba(0,0,0,1) 76%,rgba(52,14,65,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#340e41', endColorstr='#340e41',GradientType=1 ); /* IE6-9 */
 
 
 }
+
+.navbar-default a{
+     color:white !important;
+ }
 
 
 /*-----End Nav bar----*/
