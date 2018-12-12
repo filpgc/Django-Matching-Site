@@ -22,7 +22,7 @@ class Hobby(models.Model):
 
 
 class Member(User):
- #   image = models.ImageField(upload_to='profile_images')
+ #  image = models.ImageField(upload_to='profile_images')
     image = models.ImageField(upload_to='profile_images')
     dob = models.DateField(max_length=8, null=True, blank=False)
 

@@ -30,6 +30,7 @@ urlpatterns = [
     #path('uploadimage/', views.upload_image, name='uploadimage'),
     path('agerange/', views.agerange, name='agerange'),
     path('homepage/', views.homepage, name='homepage'),
+    path('homepage/match/', views.match, name='match'),
 
 ]
 

@@ -27,12 +27,12 @@
             </div>
             <!-----------Information-------->
             <div class="col-xs-8">
-                <br>
                 <progress id="progressBar" value="0" max="100" style="width:150px;display:none;"></progress>
-                <h1 class="username" align="left"> Full name: {{fullname}} </h1>
-                <h2 class="username" align="left"> Age: {{age}} </h2>
-                <h2 class="username" align="left"> Email: {{email}}</h2>
-                <h2 class="username" align="left"> Username: {{username}} </h2>
+                <h2 class="userprofile" align="left"> Full name: {{fullname}} </h2>
+                <h2 class="userprofile" align="left"> Age: {{age}} </h2>
+                <h2 class="userprofile" align="left"> Email: {{email}}</h2>
+                <h2 class="userprofile" align="left"> Username: {{username}} </h2>
+                <h2 class="userprofile" align="left"> Gender: {{gender}} </h2>
             </div>
             </div>
 
@@ -64,6 +64,7 @@
 
             <!-----Username---->
             <div class="col-sm-12">
+                <div class="hide">
                 <div class="row">
                     <div class="col-xs-4">
                         <label class="username">Username :</label>
@@ -72,7 +73,19 @@
                         <input type="text" name="uname" id="uname" placeholder="{{username}}"  value="{{ username}}"  class="form-control last" required readonly>
                     </div>
                 </div>
+                </div>
             </div>
+                <!-----For dateofbirth---->
+            <div class="col-sm-12">
+               <div class="row">
+                  <div class="col-xs-4">
+                     <label class="age" >Date of Birth :</label>
+                  </div>
+                  <div class="col-xs-8"   >
+                     <input type="text" name ="dob" id="datepicker" class="form-control" value="{{dob|date:'Y-m-d'}}">
+                     </div>
+                  </div>
+               </div>
             <!-----email---->
             <div class="col-sm-12">
                 <div class="row">
@@ -84,17 +97,24 @@
                     </div>
                 </div>
             </div>
-            <!-----Password---->
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-xs-4">
-                        <label class="password">Password :</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input type="password" name="password" id="password" placeholder="Enter your New Password" class="form-control">
-                    </div>
-                </div>
-            </div>
+
+            <!----------- For Gender-------->
+                <div class="col-sm-12">
+                    <div class="hide">
+                     <div class ="row">
+                        <div class="col-xs-4 ">
+                           <label class="gender">Gender:</label>
+                        </div>
+                        <div class="col-xs-4 male">
+                           <input type="radio" name="gender"  id="gender" value="M" checked>Male</input>
+                        </div>
+                        <div class="col-xs-4 female">
+                            {% if gender == 'F' %}
+                           <input type="radio"  name="gender" id="gender" value="F" checked>Female</input>
+                            {%endif%}
+                        </div>
+                     </div>
+                     </div>
             <!----------- For Hobby-------->
             <div class="col-sm-12"><br>
                         <div class ="row">

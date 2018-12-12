@@ -298,7 +298,7 @@ and (max-device-width: 600px)
 
 
 /*--- for label of username and fullname---*/
- .username{
+ .userprofile, .username{
      margin-left: 1px;
      font-size: 14px;
      color: white;
@@ -386,12 +386,18 @@ and (max-device-width: 600px)
  /*---------- Submit button hover animation--------*/
 
 
- .btn.btn-warning:hover {
+ .btn.btn-warning:hover, .match:hover {
      box-shadow: 2px 1px 2px 3px #99ccff;
      background:#5900a6;
      color:#fff;
      transition: background-color 1.15s ease-in-out,border-color 1.15s ease-in-out,box-shadow 1.15s ease-in-out;
 }
+
+ .match{
+      background:orange;
+     color:white;
+     border-radius:10px;
+ }
 
 
 /*-----multi select button for hobbies, position fixed----*/
@@ -493,7 +499,7 @@ li.multiselect-item.multiselect-group {
 }
 
 /*----- button multiple selection of hobbies, this is needed in order to avoid showing the javascript loading----*/
-.option-group-demo
+.option-group-demo, .hide
 {
    display: none
 }

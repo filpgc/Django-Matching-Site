@@ -20,14 +20,20 @@
                                 <option value="0">Under 30</option>
                                 <option value="1">30-50</option>
                                 <option value="2">Over 50</option>
-                              </select>
+      </select>
         </form>
     </thead>
     <tbody>
      {% for username, hobby in members %}
-      <tr href ='{{member.username.url}}'>
-        <td>{{username}}</td>
+      <tr>
+        <td class ="usernames" value={{username}} >{{username}}</td>
         <td>{{hobby}}</td>
+          <td>
+              <form>
+            {% csrf_token %}
+              <button style="width:100px"  class="match" id = {{forloop.counter}} value="{{username}}">Match</button>
+              </form>
+          </td>
       </tr>
     {% endfor %}
     </tbody>

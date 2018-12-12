@@ -63,13 +63,14 @@ def hobbies(request):
 
 
 def register(request):
+    condition=register
     if 'fname' in request.POST and 'uname' in request.POST and 'password' in request.POST:
-        dict = retrieve(request)
-        user = Member(username=dict[0], first_name=dict[1], email=dict[3], dob=dict[5])
+        dict = retrieve(request, condition)
+        user = Member(username=dict[0], first_name=dict[1], email=dict[2], dob=dict[4], gender=dict[5])
         try:
-            user.set_password(dict[2])
+            user.set_password(dict[6])
             user.save()
-            for hobby in dict[4]:  # dict[4] is the list of hobbies
+            for hobby in dict[3]:  # dict[4] is the list of hobbies
                 hob, _ = Hobby.objects.get_or_create(name=hobby)
                 user.hobby.add(hob)
         except IntegrityError:
@@ -137,17 +138,14 @@ def logout(request, user):
 @loggedin
 def profile(request, user):
     user1 = Member.objects.filter(username=user)  # QuerySet object
+    condition=profile
     if request.POST:
-        dict = retrieve(request)
-        user.set_password(dict[2])  # hashes password after editing
-        user.save()  # needed in order to save hashed password
-
-        user1.update(first_name=dict[1], email=dict[3])  # updates the fullname and email
+        dict = retrieve(request, condition)
+        user1.update(first_name=dict[1], email=dict[2], dob=dict[4])  # updates the fullname and email
         user.hobby.clear()  # clears hobby
-        for hobby in dict[4]:  # dict[4] is the list of hobbies
+        for hobby in dict[3]:  # dict[4] is the list of hobbies
             hob, _ = Hobby.objects.get_or_create(name=hobby)
-            user.hobby.add(hob) 
-    test = calculate_age(user.dob)
+            user.hobby.add(hob)
     total = Hobby.objects.all()  # Queryset, all the hobbies
     outdoor = total.filter(category="Out")  # hobbies filtered by category outdoor
     indoor = total.filter(category='In')  # hobbies filtered by category indoor
@@ -158,22 +156,27 @@ def profile(request, user):
         'username': user1[0].username,
         'fullname': user1[0].first_name,
         'loggedin': True,
-        'age':test,
+        'age': calculate_age(user1[0].dob),
         'outdoor': outdoor,
-        'indoor': indoor
+        'indoor': indoor,
+        'gender': user1[0].gender,
+        'dob': user1[0].dob
     }
     return render(request, 'mainapp/profile.html', context=dict)
 
 
 # retrieve all the fields passed in the request
-def retrieve(request):
+def retrieve(request, condition):
     u = request.POST['uname']
     f = request.POST['fname']
-    p = request.POST['password']
     e = request.POST['email']
+    g = request.POST['gender']
     h = request.POST.getlist('hobby')
     d = request.POST['dob']
-    dict = [u, f, p, e, h,d]  # creates an array containing all the fields
+    dict = [u, f, e, h, d, g]  # creates an array containing all the fields
+    if condition == register:
+        p = request.POST['password']
+        dict.append(p)
     return dict
 
 @loggedin
@@ -186,7 +189,6 @@ def hobby(request, user):
 
 @loggedin
 def homepage(request, user):
-    context = { "appname" : appname}
     members = Member.objects.all()
     user_hobbies = user.hobby.all()
     print(user_hobbies)
@@ -209,3 +211,11 @@ def homepage(request, user):
     }
    # context = serializers.serialize('json', sort)
     return render(request, 'mainapp/homepage.html', context)
+
+@loggedin
+def match(request,user):
+    name = request.POST['username']
+    matched = Member.objects.get(username = name)
+    user.match.add(matched)
+    context = serializers.serialize('json',Member.objects.all())
+    return JsonResponse(context, safe=False)
