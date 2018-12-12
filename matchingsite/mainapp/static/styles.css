@@ -160,16 +160,16 @@
      color: White;
      text-shadow: 3px 5px #4f4f4f;
      font-family: montserrat;
-	 font-size: 90px;
+     font-size: 90px;
      animation: fadeAndScale .3s ease-in;
-	 transform-origin: center bottom;
+     transform-origin: center bottom;
 
  }
 
  .welcome_subheading{
          color: white;
          font-size: xx-large
-			 ;
+             ;
  }
 
   .welcome_subsubheading{
@@ -179,14 +179,14 @@
   /*------------Animation---------*/
 
 @keyframes fadeAndScale{
-	from{
-		opacity: 0;
-		transform: scale3d(.75, .75, 1);
-	}
-	to{
-		opacity: 1;
-		transform: scale3d(1, 1, 1)
-	}
+    from{
+        opacity: 0;
+        transform: scale3d(.75, .75, 1);
+    }
+    to{
+        opacity: 1;
+        transform: scale3d(1, 1, 1)
+    }
 }
 
  .animation {
@@ -235,12 +235,12 @@ and (max-device-width: 600px)
 
 
 /*-------email, age bar ----------*/
- #email{
+ #email, #datepicker{
      margin-top: 5px;
 
 }
 /*-------email, age label ----------*/
- .mail{
+ .mail, .age{
      margin-left: 32px;
      color: white;
      font-size: 14px;

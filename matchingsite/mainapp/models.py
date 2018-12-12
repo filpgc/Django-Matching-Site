@@ -27,6 +27,7 @@ class Member(User):
     dob = models.DateField(max_length=8, null=True, blank=False)
 
 
+
     class Meta:
         verbose_name_plural = "User"
 
@@ -35,7 +36,7 @@ class Member(User):
         blank=False,
         symmetrical=False
     )
-    following = models.ManyToManyField(
+    match = models.ManyToManyField(
         to='self'   ,
         blank=True,
         symmetrical=False
