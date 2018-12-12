@@ -8,6 +8,8 @@ from django.template import RequestContext, loader
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+from datetime import date
+from django.utils.timezone import now
 
 from django.core import serializers
 from django.utils import timezone
@@ -63,7 +65,7 @@ def hobbies(request):
 def register(request):
     if 'fname' in request.POST and 'uname' in request.POST and 'password' in request.POST:
         dict = retrieve(request)
-        user = Member(username=dict[0], first_name=dict[1], email=dict[3])
+        user = Member(username=dict[0], first_name=dict[1], email=dict[3], dob=dict[5])
         try:
             user.set_password(dict[2])
             user.save()
@@ -78,6 +80,19 @@ def register(request):
         }
         return render(request, 'mainapp/user-registered.html', context)
 
+def calculate_age(dob):
+    today = date.today()
+    print(today)
+    print(today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day)))
+    return today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
+
+def agerange(min_age, max_age):
+    current = now().date()
+    min_date = date(current.year - min_age, current.month, current.day)
+    max_date = date(current.year - max_age, current.month, current.day)
+
+    return user_profiles.filter(birthdate__gte=max_date,
+                                birthdate__lte=min_date).order_by("dob")
 
 def login(request):
     if not ('username' in request.POST and 'password' in request.POST):
@@ -131,8 +146,8 @@ def profile(request, user):
         user.hobby.clear()  # clears hobby
         for hobby in dict[4]:  # dict[4] is the list of hobbies
             hob, _ = Hobby.objects.get_or_create(name=hobby)
-            user.hobby.add(hob)
-
+            user.hobby.add(hob) 
+    test = calculate_age(user.dob)
     total = Hobby.objects.all()  # Queryset, all the hobbies
     outdoor = total.filter(category="Out")  # hobbies filtered by category outdoor
     indoor = total.filter(category='In')  # hobbies filtered by category indoor
@@ -143,6 +158,7 @@ def profile(request, user):
         'username': user1[0].username,
         'fullname': user1[0].first_name,
         'loggedin': True,
+        'age':test,
         'outdoor': outdoor,
         'indoor': indoor
     }
@@ -156,7 +172,8 @@ def retrieve(request):
     p = request.POST['password']
     e = request.POST['email']
     h = request.POST.getlist('hobby')
-    dict = [u, f, p, e, h]  # creates an array containing all the fields
+    d = request.POST['dob']
+    dict = [u, f, p, e, h,d]  # creates an array containing all the fields
     return dict
 
 @loggedin

@@ -13,6 +13,15 @@
         <th class="text-center">Username</th>
         <th class="text-center">Hobbies in common</th>
       </tr>
+       <form method='POST' class ="form" action="{% url 'register' %}">
+        {% csrf_token %}
+      <select id="age" class="form-control">       
+                                <option selected>Age</option>
+                                <option value="0">Under 30</option>
+                                <option value="1">30-50</option>
+                                <option value="2">Over 50</option>
+                              </select>
+        </form>
     </thead>
     <tbody>
      {% for username, hobby in members %}

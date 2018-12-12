@@ -18,7 +18,12 @@ $(function() {
    });
 
 
-
+  $( "#datepicker" ).datepicker({
+     dateFormat: 'yy-mm-dd',
+     changeMonth: true,
+     changeYear: true,
+     yearRange: "-100:+0"
+   });
 
 
     $('.option-group-demo').multiselect({
@@ -27,6 +32,23 @@ $(function() {
 
     });
 
+ $('#age').change(function(){
+  event.preventDefault();
+  var $myForm = $('.form');
+    var val = $('#age option:selected').val()
+});
+$.ajax({
+      type:"POST",
+      url: "/agerange/",
+      data:{'age':val, 'csrfmiddlewaretoken' : $('input[name=csrfmiddlewaretoken]').val()},
+      success:handleSuccess,
+      error:handleError,
+
+    });
+
+function handleSucess(){
+  console.log("test")
+}
 
 
     // shows the selected hobbies in the edit profile page
@@ -43,13 +65,10 @@ $(function() {
         },
     });
 
+
 });
-
-
-
-
-
 
 
 
 });
+

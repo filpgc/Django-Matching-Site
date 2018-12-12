@@ -28,6 +28,7 @@ urlpatterns = [
     # Ajax: delete a message
     # Ajax: upload new profile image
     #path('uploadimage/', views.upload_image, name='uploadimage'),
+    path('agerange/', views.agerange, name='agerange'),
     path('homepage/', views.homepage, name='homepage'),
 
 ]
