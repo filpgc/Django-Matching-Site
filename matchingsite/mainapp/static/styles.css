@@ -10,21 +10,8 @@
      color: white;
 
 }
-/*-----for border----*/
- .container{
-     background-image: linear-gradient(1800deg, #340e41, #180e41 );
-     border-style: 1px solid grey;
-     margin: 0 auto;
-     text-align: center;
-     opacity: 0.8;
-     border: 1px solid white;
-     margin-top: 30px;
-     max-width: 510px;
-     padding-top: 10px;
-     height: 400px;
-}
 
- .welcome{
+.welcome{
      color: white;
      margin: 0 auto;
      text-align: center;
@@ -33,39 +20,129 @@
      max-width: 900px;
      padding-top: -100px;
 }
+/*-----Start Nav bar----*/
 
+ .container-fluid{
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#340e41+0,000000+19,000000+76,340e41+100 */
+background: rgb(52,14,65); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(52,14,65,1) 0%, rgba(0,0,0,1) 19%, rgba(0,0,0,1) 76%, rgba(52,14,65,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgba(0,0,0,1) 76%,rgba(52,14,65,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgba(0,0,0,1) 76%,rgba(52,14,65,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#340e41', endColorstr='#340e41',GradientType=1 ); /* IE6-9 */
 
-  /*------------ Start For Profile---------*/
- .break_line{
-    border: none;
-    height: 2.5px;
-    color: black;
-    background-color: black;
 
 }
 
- #information_title{
-     padding-top: -10px;
-     margin-top: -5px;
-     color: white;
-     font-size: 30px;
-     font-weight: bold;
 
- }
+/*-----End Nav bar----*/
 
- .container2{
+/*-----Start signup----*/
+ .container_signup{
      background-image: linear-gradient(1800deg, #340e41, #180e41 );
-     border-style: 1px solid grey;
+     box-shadow:25px 25px 10px rgba(10, 10, 10, 0.5);
      margin: 0 auto;
      text-align: center;
      opacity: 0.8;
      border: 5px solid black;
      border-radius: 20px;
      margin-top: 30px;
-     padding-right:20px;
      max-width: 550px;
      padding-top: 30px;
-     height: 650px;
+     height: 430px;
+
+}
+
+ .sub_container_signup {
+         background-color: #080808;
+      margin-top: -30px;
+      text-align: center;
+      border-bottom: 5px solid black;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-top: 1px solid black;
+     max-width: 600px;
+     height: 70px;
+     padding-bottom: 20px;
+     padding-right: 0px;
+
+}
+
+  #signup_title {
+     padding-top: 10px;
+     color: white;
+     font-size: 30px;
+     font-weight: bold;
+
+ }
+  .signup_form {
+     padding-top: 20px;
+      padding-right: 23px;
+
+ }
+
+/*-----End Signup----*/
+
+/*------------ Start Profile---------*/
+
+#profile-img{
+    border-radius: 30%;
+
+}
+
+ #information_title1{
+     padding-top: 10px;
+     padding-bottom: 12px;
+     margin-top: 7px;
+     color: white;
+     font-size: 30px;
+     font-weight: bold;
+
+ }
+  #information_title2{
+     padding-top: 7px;
+     padding-bottom: 17px;
+     margin-top: 7px;
+     color: white;
+     font-size: 30px;
+     font-weight: bold;
+
+ }
+.sub_container_profile1{
+      background-color: #080808;
+      margin-top: -30px;
+      text-align: center;
+      border-bottom: 5px solid black;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-top: 1px solid black;
+     max-width: 600px;
+     height: 70px;
+
+}
+.sub_container_profile2{
+         background-color: #080808;
+      margin-top: 190px;
+      text-align: center;
+      border-bottom: 5px solid black;
+      border-top: 5px solid black;
+     max-width: 600px;
+    padding-right:20px;
+     height: 70px;
+
+}
+ .container_profile{
+     background-image: linear-gradient(1800deg, #340e41, #180e41 );
+     box-shadow:25px 25px 10px rgba(10, 10, 10, 0.5);
+     margin: 0 auto;
+     text-align: center;
+     opacity: 0.8;
+     border: 5px solid black;
+     border-radius: 20px;
+     margin-top: 30px;
+     /*padding-right:20px;*/
+     max-width: 550px;
+     padding-top: 30px;
+     height: 630px;
 
 }
    /*------------End For Profile---------*/
@@ -74,6 +151,7 @@
  .container_login{
      background-image: linear-gradient(1800deg, #340e41, #180e41 );
      margin: 0 auto;
+     box-shadow:25px 25px 10px rgba(10, 10, 10, 0.5);
      text-align: center;
      opacity: 0.8;
      border: 5px solid black;
@@ -83,11 +161,19 @@
 
 }
 
+ .logged_p{
+     color: white;
+     font-size: 20px;
+     margin-top: 10px;
+     padding-top: 10px;
+
+ }
+
   .sub_container_login{
-     background-color: #180e41;
+     background-color: #080808;
       margin: 0 auto;
       text-align: center;
-     opacity: 0.8;
+
       border-bottom: 5px solid black;
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
@@ -109,13 +195,13 @@
  .login_field{
     border:none;
      outline:none;
-     margin-top: 20px;
+     margin-top: 30px;
      background: transparent;
      width: 250px;
      height: 50px;
      border-bottom: 1px solid #fff;
      color:white;
-     font-size: 25px;
+     font-size: 23px;
      max-width: 1000px;
 
  }

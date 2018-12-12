@@ -1,13 +1,24 @@
 {% extends "mainapp/base.html" %}
 
 {% block content %}
-   <span class='info'>&#8658; You must be logged in to view this page.</span>
-   <br>
-   <br>
-   <div class='main'>
-       You have been logged out.
-       Please <a href="{% url 'login' %}">click here</a> to refresh the screen.
-       <br>
-       <br>
+    <div class='main'>
+    <div class="welcome">
+    <br>
+    </div>
+           <!-----Log in container---->
+        <div class="container_login">
+            <!-----Log in sub_container---->
+        <div class="sub_container_login">
+            <h1 id="Sub_container_title">You are not logged out! </h1>
+            <br>
+            <!-----Login Form---->
+           <form method='POST' action="{% url 'login' %}">
+           	{% csrf_token %}
+               <input class="login_field" placeholder="Username" type='text' maxlength='16' id='logusername' name='username'>
+               <br><br><br>
+               <input class="login_field" placeholder="Password" type='password' maxlength='16' name='password'><br>
+               <br>
+               <input type='submit' class="btn btn-warning" value='Login'/>
+           </form>
    </div>
 {% endblock %}

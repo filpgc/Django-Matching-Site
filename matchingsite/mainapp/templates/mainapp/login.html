@@ -4,26 +4,32 @@
 
 {% block content %}
    <div class='main'>
-       {% if loggedin %}
-           You are now logged in.
-            <br>
-        <li><a href="{% url 'logout' %}">Log out</a></li>
-        <li><a href="{% url 'profile' %}">Profile</a></li>
-
-           <br>
-       {% else %}
-
     <div class="welcome">
-        <!-----Welcome Sentences---->
-    <h1> </h1>
     <br>
     </div>
-           <!-----Login container---->
+           <!-----Log in container---->
         <div class="container_login">
-            <!-----Login sub_container---->
+            <!-----Log in sub_container---->
         <div class="sub_container_login">
-            <h1 id="Sub_container_title">Login </h1>
+            {% if loggedin %}
+            <h1 id="Sub_container_title">You are Logged in! </h1>
         </div>
+            <br>
+            <!-----Logged in Form---->
+		<form >
+            <p class="logged_p"> Start meeting new people:</p>
+            <button  style="width:100px" class="btn btn-warning" formaction="{% url 'homepage' %}"> Homepage</button>
+            <br>
+            <p class="logged_p">Visit or Edit your profile:</p>
+            <button  style="width:100px" class="btn btn-warning" formaction="{% url 'profile' %}"> Profile</button>
+            <br>
+            <p class="logged_p">Log out and be lonely:</p>
+            <button style="width:100px" class="btn btn-warning" formaction="{% url 'logout' %}">Log out</button>
+		</form>
+           </div>
+       {% else %}
+
+            <h1 id="Sub_container_title">Login </h1>
             <br>
             <!-----Login Form---->
            <form method='POST' action="{% url 'login' %}">
@@ -34,7 +40,6 @@
                <br>
                <input type='submit' class="btn btn-warning" value='Login'/>
            </form>
-           </div>
        {% endif %}
    </div>
 {% endblock %}
