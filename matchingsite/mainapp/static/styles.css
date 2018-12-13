@@ -386,7 +386,7 @@ and (max-device-width: 600px)
  /*---------- Submit button hover animation--------*/
 
 
- .btn.btn-warning:hover, .match:hover {
+ .btn.btn-warning:hover, .match:hover{
      box-shadow: 2px 1px 2px 3px #99ccff;
      background:#5900a6;
      color:#fff;
@@ -406,7 +406,6 @@ span.multiselect-native-select{
 
 
 }
-
 
 /*----- within the multi select button for hobbies,styling----*/
 span.multiselect-native-select select{

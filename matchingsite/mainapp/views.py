@@ -2,20 +2,15 @@ from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import Http404
 from mainapp.models import Member, Hobby, User
 from django.db import IntegrityError
-from django.http import HttpResponse
-from django.template import loader
-from django.template import RequestContext, loader
+
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 import json
 from datetime import date
 from django.utils.timezone import now
 
 from django.core import serializers
-from django.utils import timezone
-from django.contrib.auth.hashers import make_password
 
-# from mainapp.templatetags.extras import display_message
+
 
 # datetime library to get time for setting cookie
 import datetime as D
@@ -70,7 +65,7 @@ def register(request):
         try:
             user.set_password(dict[6])
             user.save()
-            for hobby in dict[3]:  # dict[4] is the list of hobbies
+            for hobby in dict[3]:  # dict[3] is the list of hobbies
                 hob, _ = Hobby.objects.get_or_create(name=hobby)
                 user.hobby.add(hob)
         except IntegrityError:
@@ -83,7 +78,6 @@ def register(request):
 
 def calculate_age(dob):
     today = date.today()
-    print(today)
     print(today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day)))
     return today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
 
@@ -91,9 +85,8 @@ def agerange(min_age, max_age):
     current = now().date()
     min_date = date(current.year - min_age, current.month, current.day)
     max_date = date(current.year - max_age, current.month, current.day)
-
-    return user_profiles.filter(birthdate__gte=max_date,
-                                birthdate__lte=min_date).order_by("dob")
+    (Member.objects.filter(dob__lt=min_date, dob__gt=max_date))
+    return Member.objects.filter(dob__lt=min_date, dob__gt=max_date)
 
 def login(request):
     if not ('username' in request.POST and 'password' in request.POST):
@@ -181,41 +174,69 @@ def retrieve(request, condition):
 
 @loggedin
 def hobby(request, user):
-    user1 = Member.objects.filter(username=user)  # QuerySet object
     hobby = user.hobby.all()
     context = serializers.serialize('json', hobby)
     return JsonResponse(context, safe=False)
 
 
-@loggedin
-def homepage(request, user):
-    members = Member.objects.all()
-    user_hobbies = user.hobby.all()
-    print(user_hobbies)
-    count  = {}
+
+def sorting(members, user):
+    count = {}
     current = 0
+    user_hobbies = user.hobby.all()
     for x in members:
         for y in user_hobbies:
             for z in x.hobby.all():
                 if y == z:
                     current = current + 1
-
-        count[str(x)]=current
+        # if current > 0 :
+        count[str(x)] = current
         current = 0
-        print(x.hobby.all())
-    print(count)
-    sort = sorted(count.items(), key=lambda x: x[1], reverse = True)
-    print(sort)
+    return sorted(count.items(), key=lambda x: x[1], reverse=True)
+
+
+@loggedin
+def filter(request, user):
+    val = request.POST.get('val')
+    gender = request.POST.get('gender')
+    filtered = Member.objects.all()
+    if val == '0':
+        filtered = agerange(0,30)
+    elif val == '1':
+        filtered = agerange(30,50)
+    elif val == '2':
+        filtered = agerange(50,100)
+    if gender =='M' :
+        filtered = filtered.filter(gender='M')
+    elif gender =='F' :
+        filtered = filtered.filter(gender='F')
+    members = filtered
+    sort = sorting(members, user)
+    context = json.dumps(sort)
+    print(context)
+    return JsonResponse(context, safe=False)
+
+
+
+@loggedin
+def homepage(request, user):
+    members = Member.objects.all()
+    sort = sorting(members, user)
     context = {
         "members": sort
     }
-   # context = serializers.serialize('json', sort)
+    print(context)
     return render(request, 'mainapp/homepage.html', context)
+
+
 
 @loggedin
 def match(request,user):
     name = request.POST['username']
     matched = Member.objects.get(username = name)
     user.match.add(matched)
-    context = serializers.serialize('json',Member.objects.all())
+    matches = user.match.all()
+    print(matches)
+    context = serializers.serialize('json', matches)
     return JsonResponse(context, safe=False)
+
