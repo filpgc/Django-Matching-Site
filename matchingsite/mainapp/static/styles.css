@@ -393,7 +393,7 @@ and (max-device-width: 600px)
      transition: background-color 1.15s ease-in-out,border-color 1.15s ease-in-out,box-shadow 1.15s ease-in-out;
 }
 
- .match{
+ .match, .unmatch{
       background:orange;
      color:white;
      border-radius:10px;
@@ -536,5 +536,13 @@ and (max-width: 770px) {
 
 }
 
+td, th {
+    color:white
+}
 
-
+.table-hover tbody tr:hover,
+            .table-hover tbody tr:hover td,
+            .table-hover tbody tr:hover th{
+                background: black !important;
+                color:#fff !important;
+            }

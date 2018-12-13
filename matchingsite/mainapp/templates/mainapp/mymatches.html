@@ -15,6 +15,7 @@
       <tr>
         <th class="text-center">Username</th>
         <th class="text-center">Hobbies in common</th>
+           <th class="text-center">Unmatch</th>
       </tr>
 
         {% csrf_token %}
@@ -23,12 +24,16 @@
 
     </thead>
     <tbody id = "tbody_id">
-     {% for username in matches %}
-      <tr class="clickable-row" href="/{{username}}/">
+     {% for username, hobby in match %}
+      <tr class="clickable-row" data-href="{{username}}/">
         <td class ="usernames" >{{username}}</td>
-        <td>{{hobby}}</td>
           <td>
-              <button style="width:100px"  class="unmatch" id = {{forloop.counter}} value="{{username}}">UnMatch</button>
+          {% for hob in hobby %}
+          {{hob}}
+          {% endfor %}
+          </td>
+          <td>
+              <button style="width:100px"  class="unmatch" id = {{forloop.counter}} value="{{username}}">Unmatch</button>
           </td>
       </tr>
     {% endfor %}

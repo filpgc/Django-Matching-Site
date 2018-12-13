@@ -224,14 +224,12 @@ def filter(request, user):
     elif gender =='F' :
         filtered = filtered.filter(gender='F')
     members = filtered
-    print(members)
+    members = excludematched(members, user)
+    #print(members)
     sort = sorting(members, user)
     context = json.dumps(sort)
-<<<<<<< HEAD
+   # print(context)
 
-    print(context)
-=======
->>>>>>> 006cdc5673212b6a4fe6dbae89d94527c2e9dcea
     return JsonResponse(context, safe=False)
 
 
@@ -239,6 +237,7 @@ def filter(request, user):
 @loggedin
 def homepage(request, user):
     members = Member.objects.all()
+    members = excludematched(members,user)
     sort = sorting(members, user)
     context = {
         "members": sort
@@ -246,10 +245,18 @@ def homepage(request, user):
     return render(request, 'mainapp/homepage.html', context)
 
 
+#exclude already matched memebrs, in order to show only the unmatched available ones
+def excludematched(members,user):
+    for match in user.match.all():
+        members = members.exclude(username = match)
+    return members
+
+
 
 @loggedin
 def match(request,user):
     name = request.POST['username']
+    print("hello")
     matched = Member.objects.get(username = name)
     user.match.add(matched)
     matches = user.match.all()
@@ -262,16 +269,25 @@ def unmatch(request,user):
     matched = Member.objects.get(username = name)
     user.match.remove(matched)
     matches = user.match.all()
-    print(matches)
     context = serializers.serialize('json', matches)
     return JsonResponse(context, safe=False)
 
 @loggedin
 def mymatches(request,user):
     matches = user.match.all()
-    print(matches)
+    count = {}
+    dict = []
+    for x in matches:
+        for y in user.hobby.all():
+            for z in x.hobby.all():
+                if y == z:
+                    dict.append(y)
+        count[str(x)] = dict
+        dict = []
+    sort = sorted(count.items(), key=lambda x: len(x[1]), reverse=True)
+
     context = {
-        "matches" : matches.exclude(username = user.username)
+        "match": sort
     }
     return render(request, 'mainapp/mymatches.html', context)
 
