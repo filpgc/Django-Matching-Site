@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import Http404
 from mainapp.models import Member, Hobby, User
 from django.db import IntegrityError
-
+from django.http import HttpResponse
 from django.http import JsonResponse
 import json
 from datetime import date
@@ -35,17 +35,17 @@ def loggedin(view):
     return mod_view
 
 
-def index(request):
+def index(request): #view for index/, shows to the user the index page where they can select to register or login
     context = {'appname': appname}
     return render(request, 'mainapp/index.html', context)
 
 
-def signup(request):
+def signup(request): 
     context = {'appname': appname}
     return render(request, 'mainapp/signup.html', context)
 
 
-def hobbies(request):
+def hobbies(request): 
     total = Hobby.objects.all()  # Querydict all the hobbies
     outdoor = total.filter(category="Out")  # hobbies filtered by category outdoor
     indoor = total.filter(category='In')  # hobbies filtered by category indoor
@@ -57,13 +57,13 @@ def hobbies(request):
     return render(request, "mainapp/signup.html", context=dict)
 
 
-def register(request):
+def register(request): #register view, is called by the signup page and registers the user with the information entered on the html form
     condition=register
     if 'fname' in request.POST and 'uname' in request.POST and 'password' in request.POST:
         dict = retrieve(request, condition)
-        user = Member(username=dict[0], first_name=dict[1], email=dict[2], dob=dict[4], gender=dict[5])
+        user = Member(username=dict[0], first_name=dict[1], email=dict[2], dob=dict[4], gender=dict[5],image=dict[6])
         try:
-            user.set_password(dict[6])
+            user.set_password(dict[7])
             user.save()
             for hobby in dict[3]:  # dict[3] is the list of hobbies
                 hob, _ = Hobby.objects.get_or_create(name=hobby)
@@ -72,13 +72,13 @@ def register(request):
             raise Http404('Username ' + dict[0] + ' already taken: Usernames must be unique')
         context = {
             'appname': "hobby",
-            'username': dict[0]
+            'username': dict[0],
+            'image':user.image #lets user select his image to add to his profile
         }
         return render(request, 'mainapp/user-registered.html', context)
 
 def calculate_age(dob):
     today = date.today()
-    print(today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day)))
     return today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
 
 def agerange(min_age, max_age):
@@ -122,7 +122,7 @@ def login(request):
 
 
 @loggedin
-def logout(request, user):
+def logout(request, user): # view for logout/, flushes the session and logs out the user
     request.session.flush()
     context = {'appname': appname}
     return render(request, 'mainapp/logout.html', context)
@@ -134,7 +134,7 @@ def profile(request, user):
     condition=profile
     if request.POST:
         dict = retrieve(request, condition)
-        user1.update(first_name=dict[1], email=dict[2], dob=dict[4])  # updates the fullname and email
+        user1.update(first_name=dict[1], email=dict[2], dob=dict[4], image=dict[6])  # updates the fullname and email
         user.hobby.clear()  # clears hobby
         for hobby in dict[3]:  # dict[4] is the list of hobbies
             hob, _ = Hobby.objects.get_or_create(name=hobby)
@@ -152,11 +152,22 @@ def profile(request, user):
         'age': calculate_age(user1[0].dob),
         'outdoor': outdoor,
         'indoor': indoor,
+        'image':user1[0].image,
         'gender': user1[0].gender,
         'dob': user1[0].dob
     }
     return render(request, 'mainapp/profile.html', context=dict)
 
+@loggedin
+def upload_image(request,user): #view of uploadimage/, allows user to upload the image on his profile by using ajax
+    user1 = Member.objects.filter(username=user)
+    if 'img_file' in request.FILES:
+        image_file = request.FILES['img_file']
+        user.image=image_file
+        user.save()
+        return HttpResponse(user.image.url)
+    else:
+        raise Http404('Image file not received')
 
 # retrieve all the fields passed in the request
 def retrieve(request, condition):
@@ -166,7 +177,8 @@ def retrieve(request, condition):
     g = request.POST['gender']
     h = request.POST.getlist('hobby')
     d = request.POST['dob']
-    dict = [u, f, e, h, d, g]  # creates an array containing all the fields
+    i = request.FILES['img_file']
+    dict = [u, f, e, h, d, g,i]  # creates an array containing all the fields
     if condition == register:
         p = request.POST['password']
         dict.append(p)
@@ -215,8 +227,11 @@ def filter(request, user):
     print(members)
     sort = sorting(members, user)
     context = json.dumps(sort)
+<<<<<<< HEAD
 
     print(context)
+=======
+>>>>>>> 006cdc5673212b6a4fe6dbae89d94527c2e9dcea
     return JsonResponse(context, safe=False)
 
 
@@ -228,7 +243,6 @@ def homepage(request, user):
     context = {
         "members": sort
     }
-    print(context)
     return render(request, 'mainapp/homepage.html', context)
 
 
@@ -239,7 +253,6 @@ def match(request,user):
     matched = Member.objects.get(username = name)
     user.match.add(matched)
     matches = user.match.all()
-    print(matches)
     context = serializers.serialize('json', matches)
     return JsonResponse(context, safe=False)
 
