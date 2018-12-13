@@ -17,7 +17,10 @@
         <h3 id="information_title1">Profile information</h3>
             <br>
             <div class="col-sm-12">
-
+      {% if image %}
+      <img id='profile-img' height=150 src={{image.url}}></img>
+      {% else %}
+      {% endif %}
             <!-----------Information-------->
             <div class="col-xs-8">
                 <progress id="progressBar" value="0" max="100" style="width:150px;display:none;"></progress>

@@ -304,6 +304,7 @@ def users_profile(request,username):
         "email": profile.email,
         "username": profile.username,
         "gender": profile.gender,
+        "image":profile.image,
         "hobbies": profile.hobby.all()
     }
     return render(request, 'mainapp/view_profile.html', context)
