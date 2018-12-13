@@ -1,5 +1,15 @@
 {% extends "mainapp/base.html" %}
 
 {% block content %}
-<span class='info'>&#8658; You must be logged in to view this page.</span><br><br>
+   <div class="container_welcome">
+<div class="animation">
+  <p class="welcome_heading">Oops!... Something goes wrong. </p>
+  <p class="welcome_subheading">You must be loggedin to view this page</p>
+    <h3 class="welcome_subsubheading"> Please log in to start </h3>
+
+		<form>
+            <button style="width:150px" class="btn btn-warning" formaction="{% url 'login' %}">Login</button>
+            &nbsp;&nbsp;
+		</form>
+</div>
 {% endblock %}

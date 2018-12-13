@@ -65,7 +65,7 @@ def hobbies(request):
 def register(request):
     if 'fname' in request.POST and 'uname' in request.POST and 'password' in request.POST:
         dict = retrieve(request)
-        user = Member(username=dict[0], first_name=dict[1], email=dict[3], dob=dict[5])
+        user = Member(username=dict[0], first_name=dict[1], email=dict[3])
         try:
             user.set_password(dict[2])
             user.save()

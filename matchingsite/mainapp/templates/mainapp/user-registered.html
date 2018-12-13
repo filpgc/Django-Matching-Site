@@ -1,15 +1,16 @@
 {% extends "mainapp/base.html" %}
 
 {% block content %}
-<span class='info'>&#8658; You must be logged in to view this page.</span>
-<br>
-<br>
-<div class='main'><h3>Please enter your details to sign up</h3>
-<h4>Account for user {{ username }} created.</h4>
-Please Log in.
-<br>
-		<ul class='menu'>
-		  <li><a href="{% url 'login' %}">Log in</a></li>
-	</ul>
+    <div class="container_welcome">
+<div class="animation">
+  <p class="welcome_heading">Congratulation {{ username }}! Your account has been created </p>
+  <p class="welcome_subheading">Start matching people with your same hobbies</p>
+    <h3 class="welcome_subsubheading"> Please log in to start </h3>
+
+		<form>
+            <button style="width:150px" class="btn btn-warning" formaction="{% url 'login' %}">Login</button>
+            &nbsp;&nbsp;
+		</form>
 </div>
+
 {% endblock %}
