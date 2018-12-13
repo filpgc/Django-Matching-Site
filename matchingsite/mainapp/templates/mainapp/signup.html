@@ -14,8 +14,13 @@
 <header class="heading" id="signup_title"> REGISTER</header>
 </div><br>
 <!---Form starting---->
- <form class="signup_form" method='POST' action="{% url 'register' %}">
-     {% csrf_token %}
+ <form class="signup_form" method='POST' action="{% url 'register' %}"  enctype='multipart/form-data'>
+      {% csrf_token %}
+      {% if image %}
+      <img id='profile-img' height=150 src='{{image.url}}'></img>
+      {% else %}
+
+      {% endif %}
    <div class="row ">
       <!--- For Name---->
       <div class="col-sm-12">
@@ -107,6 +112,7 @@
                            </select>
                                     </div>
                            <div class="col-xs-4">
+                                                              <input type="file" name="img_file"/>
                                  <input type="submit" class="btn btn-warning" value="Register"/>
                                     </div>
                            </div>

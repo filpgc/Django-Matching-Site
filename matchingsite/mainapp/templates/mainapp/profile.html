@@ -15,16 +15,19 @@
         <h3 id="information_title1">Profile information</h3>
             <br>
             <div class="col-sm-12">
-            <!-----------Profile Pic-------->
-            <div class = col-xs-4>
-                {% if profile.image %}
-
-                <img id='profile-img' height=150 src='{{profile.image.url}}'></img>
-                {% else %}
-
-                <img id='profile-img' height=150 src="{% static 'mainapp/profile-image.jpg' %}"></img>
-                {% endif %}
+  <!-----------Profile Pic-------->
+               <form id='upload_form' method='POST'  enctype='multipart/form-data'>
+            {% csrf_token %}
+           <div class = col-xs-4>
+      {% if image %}
+      <img id='profile-img' height=150 src={{image.url}}></img>
+      {% else %}
+      <img id='profile-img' height=150 src="{% static 'mainapp/profile-image.jpg' %}"></img>
+      {% endif %}
             </div>
+             <input type="file" id="img_file" style="display:none;">
+
+            </form>
             <!-----------Information-------->
             <div class="col-xs-8">
                 <progress id="progressBar" value="0" max="100" style="width:150px;display:none;"></progress>

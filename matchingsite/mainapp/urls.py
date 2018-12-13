@@ -31,6 +31,7 @@ urlpatterns = [
     path('agerange/', views.agerange, name='agerange'),
     path('homepage/', views.homepage, name='homepage'),
     path('homepage/match/', views.match, name='match'),
+    path('profile/uploadimage/', views.upload_image, name='uploadimage'),
     path('homepage/filteredage/', views.filter, name='filteredage'),
     #path('<str:username>/', )
 ]
