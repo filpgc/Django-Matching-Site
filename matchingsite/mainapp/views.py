@@ -14,7 +14,7 @@ from django.core import serializers
 
 # datetime library to get time for setting cookie
 import datetime as D
-import sys
+
 
 appname = 'matchingsite'
 
@@ -184,6 +184,7 @@ def sorting(members, user):
     count = {}
     current = 0
     user_hobbies = user.hobby.all()
+    members = members.exclude(username = user.username)
     for x in members:
         for y in user_hobbies:
             for z in x.hobby.all():
@@ -211,8 +212,10 @@ def filter(request, user):
     elif gender =='F' :
         filtered = filtered.filter(gender='F')
     members = filtered
+    print(members)
     sort = sorting(members, user)
     context = json.dumps(sort)
+
     print(context)
     return JsonResponse(context, safe=False)
 
@@ -240,3 +243,38 @@ def match(request,user):
     context = serializers.serialize('json', matches)
     return JsonResponse(context, safe=False)
 
+@loggedin
+def unmatch(request,user):
+    name = request.POST['username']
+    matched = Member.objects.get(username = name)
+    user.match.remove(matched)
+    matches = user.match.all()
+    print(matches)
+    context = serializers.serialize('json', matches)
+    return JsonResponse(context, safe=False)
+
+@loggedin
+def mymatches(request,user):
+    matches = user.match.all()
+    print(matches)
+    context = {
+        "matches" : matches.exclude(username = user.username)
+    }
+    return render(request, 'mainapp/mymatches.html', context)
+
+
+
+#profile of the selected user
+def users_profile(request,username):
+    print(username)
+    profile = Member.objects.get(username = username)
+    print(profile.hobby.all())
+    context = {
+        "fullname" : profile.first_name,
+        "age": calculate_age(profile.dob),
+        "email": profile.email,
+        "username": profile.username,
+        "gender": profile.gender,
+        "hobbies": profile.hobby.all()
+    }
+    return render(request, 'mainapp/view_profile.html', context)

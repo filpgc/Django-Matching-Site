@@ -54,7 +54,7 @@ $(function() {
 
 
 
-   $(document). on('click', ".match" ,function() {
+   $("body").on('click', ".match" ,function(e) {
         var val = $(this).attr('value')
         var element = this;
         alert(val)
@@ -70,8 +70,34 @@ $(function() {
             },
             error:function() {
                 alert("error")
-            }
+            },
         });
+        return false;
+    });
+
+   $("body").on('click', ".unmatch" ,function(e) {
+        var val = $(this).attr('value')
+        var element = this;
+
+        $.ajax({
+            type: "POST",
+            url: 'unmatch/',
+            data: {
+                'username': val,
+                'csrfmiddlewaretoken' : $('input[name=csrfmiddlewaretoken]').val(),
+            },
+            success: function(json) {
+                $(element).slideUp(200, function(){
+
+                 $(this).parent().parent().remove();
+
+ });
+            },
+            error:function() {
+                alert("error")
+            },
+        });
+        return false;
     });
 
 
@@ -114,10 +140,9 @@ function getFiltered(response) {
 }
 
 
-$(document).ready(function($) {
-    $(".clickable-row").click(function() {
+ $("body").on('click', ".clickable-row" ,function() {
         window.location = $(this).data("href");
-    });
+
 });
 
 });

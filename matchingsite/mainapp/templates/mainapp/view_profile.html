@@ -1,17 +1,44 @@
 {% extends "mainapp/base.html" %}
 
 {% block content %}
+<body>
    <div class='main'>
-   <h3>{{ greeting }} Profile</h3>
-   {% if profile %}
-      {% if profile.image %}
-      <img height=150 src='{{profile.image.url}}'></img>
-      <br>
-      {% endif %}
-      {{ profile.text }} <br style='clear:left;'><br>
-   {% endif %}
-   <a class='button' href="{% url 'messages' %}?view={{ view_user }}">View {{ greeting }} messages</a>
-   <br>
-   <br>
-   </div>
+    <div class="welcome">
+        <!-----Welcome Sentences---->
+        <h1>Hello {{ fullname }}! This is your profile page </h1>
+
+    </div>
+    <!-----------Container-------->
+    <div class="container_profile">
+    <div class="sub_container_profile1">
+        <!-----------Profile Information-------->
+        <div class="row ">
+
+        <h3 id="information_title1">Profile information</h3>
+            <br>
+            <div class="col-sm-12">
+
+            <!-----------Information-------->
+            <div class="col-xs-8">
+                <progress id="progressBar" value="0" max="100" style="width:150px;display:none;"></progress>
+                <h2 class="userprofile" align="left"> Full name: {{fullname}} </h2>
+                <h2 class="userprofile" align="left"> Age: {{age}} </h2>
+                <h2 class="userprofile" align="left"> Email: {{email}}</h2>
+                <h2 class="userprofile" align="left"> Username: {{username}} </h2>
+                <h2 class="userprofile" align="left"> Gender: {{gender}} </h2>
+                 <h2 class="userprofile" align="left"> Hobbies </h2>
+                <ul>
+                 {% for hobby  in hobbies %}
+
+                    <li class="userprofile" align="left">  {{hobby}} </li>
+                {% endfor %}
+                    </ul>
+            </div>
+            </div>
+
+        </div>
+         <br>
+</div>
+
+</body>
 {% endblock %}

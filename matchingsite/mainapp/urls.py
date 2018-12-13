@@ -32,7 +32,10 @@ urlpatterns = [
     path('homepage/', views.homepage, name='homepage'),
     path('homepage/match/', views.match, name='match'),
     path('homepage/filteredage/', views.filter, name='filteredage'),
-    #path('<str:username>/', )
+    path('mymatches/',views.mymatches, name ='mymatches'),
+    path('mymatches/unmatch/', views.unmatch, name='unmatch'),
+    path('homepage/<str:username>/',views.users_profile,name='users_profile')
+
 ]
 
 

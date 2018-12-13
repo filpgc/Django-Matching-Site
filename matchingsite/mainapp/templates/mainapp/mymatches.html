@@ -1,0 +1,44 @@
+{% extends "mainapp/base.html" %} {% load static %} {% block content %}
+
+<div class='main'>
+    <div class="welcome">
+        <!-----Welcome Sentences---->
+        <h1> My Matches </h1>
+
+    </div>
+    <!-----------Container-------->
+    <div class="container_profile">
+
+        <!-----------Profile Information-------->
+       <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="text-center">Username</th>
+        <th class="text-center">Hobbies in common</th>
+      </tr>
+
+        {% csrf_token %}
+           <div class="col-2m-12">
+               <div class="col-xs-4">
+
+    </thead>
+    <tbody id = "tbody_id">
+     {% for username in matches %}
+      <tr class="clickable-row" href="/{{username}}/">
+        <td class ="usernames" >{{username}}</td>
+        <td>{{hobby}}</td>
+          <td>
+              <button style="width:100px"  class="unmatch" id = {{forloop.counter}} value="{{username}}">UnMatch</button>
+          </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+
+        </div>
+
+
+
+    </div>
+    {% endblock %}

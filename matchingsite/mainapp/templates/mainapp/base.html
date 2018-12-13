@@ -33,14 +33,16 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
+        <a class="navbar-brand" href="{% url 'homepage' %}">HoBMatch</a>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="{% url 'profile' %}">Profile</a></li>
         <li><a href="{% url 'homepage' %}">Homepage</a></li>
+          <li><a href="{% url 'mymatches' %}">My Matches</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'signup' %}">Sing in</a>
+        <li><a href="{% url 'login' %}">Log in</a></li>
+        <li><a href="{% url 'signup' %}">Sign up</a>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
             <li role="separator" class="divider"></li>
           </ul>

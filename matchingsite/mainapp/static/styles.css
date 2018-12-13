@@ -507,3 +507,34 @@ li.multiselect-item.multiselect-group {
 input[type="radio"], input[type="checkbox"]{
     margin-right:3px !important;
 }
+
+
+
+/*-----HobMatch name on the center ----*/
+
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    font-size: 30px !important;
+    text-align: center;
+    margin:0 auto;
+}
+
+.navbar-toggle {
+    z-index: 3;
+}
+
+
+/*-----HobMatch name on the center on mobile keep it centered----*/
+
+@media only screen
+and (max-width: 770px) {
+    .navbar-brand {
+        margin-top:-50px;
+    }
+
+}
+
+
+
