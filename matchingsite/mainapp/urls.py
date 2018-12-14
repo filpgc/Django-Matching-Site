@@ -18,7 +18,6 @@ urlpatterns = [
     path('hobby/', views.hobby, name='hobby'),
     # user profile edit page
     path('profile/', views.profile, name='profile'),
-
     # the user matches page
     path('mymatches/', views.mymatches, name='mymatches'),
     # homepage with all the available matches

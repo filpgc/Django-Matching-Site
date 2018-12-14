@@ -2,54 +2,53 @@
 
 {% block content %}
 <body>
-
-
-<div class="container_homepage">
-  <h2>Available Matches</h2>
-  <p>Enjoy your time</p>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th class="text-center">Username</th>
-        <th class="text-center">Hobbies in common</th>
-      </tr>
+	<div class="container_homepage">
+		<h2>Available Matches</h2>
+		<p>Enjoy your time</p>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th class="text-center">Username</th>
+					<th class="text-center">Hobbies in common</th>
+				</tr>
 
         {% csrf_token %}
-           <div class="col-2m-12">
-               <div class="col-xs-4">
-      <select id="age" class="form-control">
-                                <option selected>Age</option>
-                                <option value="0">Under 30</option>
-                                <option value="1">30-50</option>
-                                <option value="2">Over 50</option>
-      </select>
-               </div>
-               <div class="col-xs-4">
-                   <select id="gender" class="form-control">
-                                <option selected>Gender</option>
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
 
-                     </select>
-               </div>
-           <div class="col-xs-4">
-               <button type="submit"  id ="filter_submit" class="btn btn-warning"> Filter</button>
-                                    </div>
-                           </div>
-    </thead>
-    <tbody id = "tbody_id">
+				<div class="col-2m-12">
+					<div class="col-xs-4">
+						<select id="age" class="form-control">
+							<option selected>Age</option>
+							<option value="0">Under 30</option>
+							<option value="1">30-50</option>
+							<option value="2">Over 50</option>
+						</select>
+					</div>
+					<div class="col-xs-4">
+						<select id="gender" class="form-control">
+							<option selected>Gender</option>
+							<option value="M">Male</option>
+							<option value="F">Female</option>
+						</select>
+					</div>
+					<div class="col-xs-4">
+						<button type="submit"  id ="filter_submit" class="btn btn-warning"> Filter</button>
+					</div>
+				</div>
+			</thead>
+			<tbody id = "tbody_id">
      {% for username, hobby in members %}
-      <tr class="clickable-row" data-href="{{username}}/">
-        <td class ="usernames" >{{username}}</td>
-        <td>{{hobby}}</td>
-          <td>
-              <button style="width:100px"  class="match" id = {{forloop.counter}} value="{{username}}">Match</button>
-          </td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-</div>
 
+				<tr class="clickable-row" data-href="{{username}}/">
+					<td class ="usernames" >{{username}}</td>
+					<td>{{hobby}}</td>
+					<td>
+						<button style="width:100px"  class="match" id = {{forloop.counter}} value="{{username}}">Match</button>
+					</td>
+				</tr>
+    {% endfor %}
+
+			</tbody>
+		</table>
+	</div>
 </body>
 {% endblock %}

@@ -27,7 +27,7 @@
             <button style="width:100px" class="btn btn-warning" formaction="{% url 'logout' %}">Log out</button>
 		</form>
            </div>
-       {% else %}
+             {% else %}
 
             <h1 id="Sub_container_title">Login </h1>
             <br>
@@ -40,6 +40,6 @@
                <br>
                <input type='submit' class="btn btn-warning" value='Login'/>
            </form>
-       {% endif %}
+            {% endif %}
    </div>
 {% endblock %}

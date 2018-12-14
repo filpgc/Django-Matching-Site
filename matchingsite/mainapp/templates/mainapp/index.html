@@ -2,29 +2,27 @@
 
 {% block content %}
 <div class="container_welcome">
-
-<div class="animation">
-  <p class="welcome_heading">Welcome to HobMatch</p>
-  <p class="welcome_subheading">The matching site based on your hobbies<p>
-    <h3 class="welcome_subsubheading"> Please log in / signup to join in. </h3>
-
+	<div class="animation">
+		<p class="welcome_heading">Welcome to HobMatch</p>
+		<p class="welcome_subheading">The matching site based on your hobbies
+			<p>
+				<h3 class="welcome_subsubheading"> Please log in / signup to join in. </h3>
 		{% if loggedin %}
-		<form>
-		  <button  class="btn btn-warning" formaction="{% url 'logout' %}">Log out</button>
-		</form>
+				<form>
+					<button  class="btn btn-warning" formaction="{% url 'logout' %}">Log out</button>
+				</form>
 		{% else %}
-		<form>
-            <button style="width:150px" class="btn btn-warning" formaction="{% url 'login' %}">Already a member?</button>
-            &nbsp;&nbsp;
-            <button  style="width:100px" class="btn btn-warning" formaction="{% url 'signup' %}"> Join us now</button>
-		</form>
 
+				<form>
+					<button style="width:150px" class="btn btn-warning" formaction="{% url 'login' %}">Already a member?</button>
+           			 &nbsp;&nbsp;
+					<button  style="width:100px" class="btn btn-warning" formaction="{% url 'signup' %}"> Join us now</button>
+				</form>
 
 		{% endif %}
+
 		<br>
-
-
-	<br>
+		<br>
 	</div>
 </div>
 {% endblock %}
