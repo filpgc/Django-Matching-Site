@@ -51,6 +51,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'hobmatch@gmail.com'
+EMAIL_HOST_PASSWORD = 'bisbis99'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
 ROOT_URLCONF = 'matchingsite.urls'
 
 TEMPLATES = [

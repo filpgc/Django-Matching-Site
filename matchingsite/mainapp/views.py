@@ -12,6 +12,7 @@ from django.core import serializers
 
 # datetime library to get time for setting cookie
 import datetime as D
+from django.core.mail import EmailMessage
 
 appname = 'matchingsite'
 
@@ -58,7 +59,9 @@ def register(request):
     condition = register
     if 'fname' in request.POST and 'uname' in request.POST and 'password' in request.POST:
         dict = retrieve(request, condition)
-        user = Member(username=dict[0], first_name=dict[1], email=dict[2], dob=dict[4], gender=dict[5], image=dict[6])
+        user = Member(username=dict[0], first_name=dict[1], email=dict[2], dob=dict[4], gender=dict[5],image=dict[6])
+        email = EmailMessage('Hobmatch: Thanks for signing up!', 'Thank you for signing up '+ dict[0] + ' please access the hobmatch to get on matching!', to=[dict[2]])
+        email.send()
         try:
             user.set_password(dict[7])
             user.save()
@@ -134,7 +137,7 @@ def profile(request, user):
     condition = profile
     if request.POST:
         dict = retrieve(request, condition)
-        user1.update(first_name=dict[1], email=dict[2], dob=dict[4], image=dict[6])  # updates the fullname and email
+        user1.update(first_name=dict[1], email=dict[2], dob=dict[4])  # updates the fullname and email
         user.hobby.clear()  # clears hobby
         for hobby in dict[3]:  # dict[4] is the list of hobbies
             hob, _ = Hobby.objects.get_or_create(name=hobby)
@@ -179,7 +182,7 @@ def retrieve(request, condition):
     g = request.POST['gender']
     h = request.POST.getlist('hobby')
     d = request.POST['dob']
-    i = request.FILES['img_file']
+    i = request.FILES.get('img_file',False)
     dict = [u, f, e, h, d, g, i]  # creates an array containing all the fields
     if condition == register:
         p = request.POST['password']
@@ -255,6 +258,8 @@ def excludematched(members, user):
 def match(request, user):
     name = request.POST['username']
     matched = Member.objects.get(username=name)
+    email = EmailMessage('Hobmatch: You have been matched', ' Congratulations'+ matched.username + ' You have been matched on hobmatch by ' + user.username + 'Make sure to keep in touch! Here, you can contact him via his email address :) ' + user.email, to=[matched.email]) #fills the email to be sent to the user that has been matched. Check settings.py for the email properties
+    email.send()#sends the email
     user.match.add(matched)
     matches = user.match.all()
     context = serializers.serialize('json', matches)
@@ -265,6 +270,8 @@ def match(request, user):
 def unmatch(request, user):
     name = request.POST['username']
     matched = Member.objects.get(username=name)
+    email = EmailMessage('Hobmatch: You have been unmatched', 'Bummer '+ matched.username + ' You have been unmatched on hobmatch.. by ' + user.username+' Better luck next time', to=[matched.email])
+    email.send()
     user.match.remove(matched)
     matches = user.match.all()
     context = serializers.serialize('json', matches)
