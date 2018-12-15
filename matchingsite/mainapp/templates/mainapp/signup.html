@@ -4,14 +4,14 @@
 {% block content %}
 
 <body>
-<div class="welcome">
-   <h1>JOIN US TODAY</h1>
-   <h3> start matching people with your same hobbies</h3>
+<div class="welcome" id="welcome_heading">
+   <header>JOIN US TODAY</header>
+   <header> start matching people with your same hobbies</header>
 </div>
 <div class="container_signup">
 <div class="sub_container_signup">
    <!---heading---->
-<header class="heading" id="signup_title"> REGISTER</header>
+<header class="heading" > REGISTER</header>
 </div><br>
 <!---Form starting---->
  <form class="signup_form" method='POST' action="{% url 'register' %}"  enctype='multipart/form-data'>
@@ -44,14 +44,14 @@
                   </div>
                </div>
             </div>
-            <!-----For dateofbirth---->
+            <!-----For date of birth---->
             <div class="col-sm-12">
                <div class="row">
                   <div class="col-xs-4">
                      <label class="age" >Date of Birth :</label>
                   </div>
                   <div class="col-xs-8"   >
-                     <input type="text" name ="dob"id="datepicker" class="form-control" required >
+                     <input type="text" name ="dob"id="datepicker" class="form-control" required placeholder="Enter your date of birth" >
                      </div>
                   </div>
                </div>

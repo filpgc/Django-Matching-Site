@@ -13,24 +13,22 @@
         <div class="row ">
 
         <h3 id="information_title1">Profile information</h3>
-            <br>
             <div class="col-sm-12">
   <!-----------Profile Pic-------->
                <form id='upload_form' method='POST'  enctype='multipart/form-data'>
             {% csrf_token %}
            <div class = col-xs-4>
       {% if image %}
-      <img id='profile-img' height=150 src={{image.url}}></img>
+      <img id='profile-img' width=200 height=150 src={{image.url}}></img>
       {% else %}
-      <img id='profile-img' height=150 src="{% static 'mainapp/profile-image.jpg' %}"></img>
+      <img id='profile-img' width="200" height=200 src="{% static 'mainapp/profile-image.jpg' %}"></img>
       {% endif %}
             </div>
              <input type="file" id="img_file" style="display:none;">
 
             </form>
             <!-----------Information-------->
-            <div class="col-xs-8">
-                <progress id="progressBar" value="0" max="100" style="width:150px;display:none;"></progress>
+            <div class="col-xs-8" id="profile_information">
                 <h2 class="userprofile" align="left"> Full name: {{fullname}} </h2>
                 <h2 class="userprofile" align="left"> Age: {{age}} </h2>
                 <h2 class="userprofile" align="left"> Email: {{email}}</h2>
@@ -40,11 +38,10 @@
             </div>
 
         </div>
-         <br>
 </div>
-
+<!-----Edit Profile---->
 <div class="sub_container_profile2">
-         <!-----Edit Profile---->
+
 
         <form id='upload_form' method='POST' action="{% url 'profile' %}" enctype='multipart/form-data'>
             {% csrf_token %}

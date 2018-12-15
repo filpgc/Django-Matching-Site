@@ -1,11 +1,9 @@
-{% extends "mainapp/base.html" %}
+{% extends "mainapp/base.html" %} {% load static %} {% block content %}
 
-{% block content %}
-<body>
-   <div class='main'>
+<div class='main'>
     <div class="welcome">
         <!-----Welcome Sentences---->
-        <h1>Hello {{ fullname }}! This is your profile page </h1>
+        <h1>You have matched with {{ fullname }}! <br>Here you can see his details</h1>
 
     </div>
     <!-----------Container-------->
@@ -13,35 +11,39 @@
     <div class="sub_container_profile1">
         <!-----------Profile Information-------->
         <div class="row ">
-
         <h3 id="information_title1">Profile information</h3>
-            <br>
             <div class="col-sm-12">
+                <!-----------Profile Pic-------->
+            <div class = col-xs-4>
       {% if image %}
       <img id='profile-img' height=150 src={{image.url}}></img>
       {% else %}
       {% endif %}
+            </div>
             <!-----------Information-------->
-            <div class="col-xs-8">
-                <progress id="progressBar" value="0" max="100" style="width:150px;display:none;"></progress>
+            <div class="col-xs-8" id="profile_information">
                 <h2 class="userprofile" align="left"> Full name: {{fullname}} </h2>
                 <h2 class="userprofile" align="left"> Age: {{age}} </h2>
                 <h2 class="userprofile" align="left"> Email: {{email}}</h2>
                 <h2 class="userprofile" align="left"> Username: {{username}} </h2>
                 <h2 class="userprofile" align="left"> Gender: {{gender}} </h2>
-                 <h2 class="userprofile" align="left"> Hobbies </h2>
+            </div>
+            </div>
+        </div>
+    </div>
+        <!-----------User hobbies-------->
+        <div class="sub_container_profile2">
+            <div class="row ">
+            <h3 id="information_title2"> {{ fullname }} hobbies </h3>
                 <ul>
                  {% for hobby  in hobbies %}
 
                     <li class="userprofile" align="left">  {{hobby}} </li>
                 {% endfor %}
                     </ul>
-            </div>
-            </div>
+    </div>
 
         </div>
-         <br>
-</div>
 
-</body>
-{% endblock %}
+    </div>
+    {% endblock %}

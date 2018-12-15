@@ -1,21 +1,27 @@
 /*-----Background-----*/
- body{
+html{
+    height: auto;
+    min-height: 100%;
+}
+
+body{
+
      background-image: linear-gradient(180deg, #340e41, #180e41 );
      background-repeat:no-repeat;
      background-size:cover;
      width:100%;
-     height:150vh;
+     height: auto;
+     min-height: 100%;
      overflow:auto;
      font-family: Montserrat!important;
      color: white;
-
 }
 
 .welcome{
      color: white;
      margin: 0 auto;
      text-align: center;
-     margin-top: 60px;
+     margin-top: 45px;
      opacity: 0.8;
      max-width: 900px;
      padding-top: -100px;
@@ -70,13 +76,7 @@ background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgb
 
 }
 
-  #signup_title {
-     padding-top: 10px;
-     color: white;
-     font-size: 30px;
-     font-weight: bold;
 
- }
   .signup_form {
      padding-top: 20px;
       padding-right: 23px;
@@ -89,17 +89,24 @@ background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgb
 
 #profile-img{
     border-radius: 30%;
-
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+    align-items: left;
 }
 
  #information_title1{
      padding-top: 10px;
-     padding-bottom: 12px;
+     padding-bottom: 23px;
      margin-top: 7px;
      color: white;
      font-size: 30px;
      font-weight: bold;
 
+ }
+ #profile_information{
+     margin-top: 12px;
  }
   #information_title2{
      padding-top: 7px;
@@ -142,10 +149,9 @@ background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgb
      border: 5px solid black;
      border-radius: 20px;
      margin-top: 30px;
-     /*padding-right:20px;*/
      max-width: 550px;
      padding-top: 30px;
-     height: 630px;
+     height: 560px;
 
 }
    /*------------End For Profile---------*/
@@ -188,13 +194,18 @@ background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgb
 
  #Sub_container_title {
      padding-top: -10px;
-     margin-top: 20px;
+     margin-top: 17px;
      color: white;
-     font-size: 30px;
+     font-size: 33px;
      font-weight: bold;
+     font-family: Montserrat;
 
  }
-
+#welcome_heading{
+    font-family: Montserrat !important;
+    font-size: 38px !important;
+    text-shadow: 3px 6px black;
+}
  .login_field{
     border:none;
      outline:none;
@@ -246,14 +257,18 @@ background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgb
 }
 
 .welcome_heading {
-     color: White;
-     text-shadow: 3px 5px #4f4f4f;
-     font-family: montserrat;
-     font-size: 90px;
+     color: white;
+     text-shadow: 5px 6px black;
+
+     font-size: 80px;
      animation: fadeAndScale .3s ease-in;
      transform-origin: center bottom;
 
  }
+
+#error_message{
+    font-size: 50px;
+}
 
  .welcome_subheading{
          color: white;
@@ -320,6 +335,8 @@ and (max-device-width: 600px)
      font-size:30px;
      color:white;
      padding-top:10px;
+     font-weight: bold;
+
 }
 
 
@@ -387,10 +404,10 @@ and (max-device-width: 600px)
 
 
  .btn.btn-warning:hover, .match:hover{
-     box-shadow: 2px 1px 2px 3px #99ccff;
+     box-shadow: 2px 1px 2px 3px black;
      background:#5900a6;
-     color:#fff;
-     transition: background-color 1.15s ease-in-out,border-color 1.15s ease-in-out,box-shadow 1.15s ease-in-out;
+     color:white;
+     transition: background-color 1.0s ease-in-out,border-color 1s ease-in-out,box-shadow 1s ease-in-out;
 }
 
  .match, .unmatch{
