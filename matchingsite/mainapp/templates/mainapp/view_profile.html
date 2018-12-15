@@ -1,9 +1,9 @@
 {% extends "mainapp/base.html" %} {% load static %} {% block content %}
 
 <div class='main'>
-    <div class="welcome">
+    <div class="welcome" id="welcome_heading">
         <!-----Welcome Sentences---->
-        <h1>You have matched with {{ fullname }}! <br>Here you can see his details</h1>
+        <header>You have matched with {{ fullname }}! <br>Here you can see his details</header>
 
     </div>
     <!-----------Container-------->
@@ -11,7 +11,8 @@
     <div class="sub_container_profile1">
         <!-----------Profile Information-------->
         <div class="row ">
-        <h3 id="information_title1">Profile information</h3>
+        <header class="heading">Profile information</header>
+        <br>
             <div class="col-sm-12">
                 <!-----------Profile Pic-------->
             <div class = col-xs-4>
@@ -33,15 +34,21 @@
     </div>
         <!-----------User hobbies-------->
         <div class="sub_container_profile2">
+        <div class="col-sm-12">
             <div class="row ">
-            <h3 id="information_title2"> {{ fullname }} hobbies </h3>
-                <ul>
+
+            <header class="heading"> {{ fullname }} hobbies </header>
+            <br>
+            <div class = col-xs-1>
+                <ul class="list_hobbies " id="list">
                  {% for hobby  in hobbies %}
 
                     <li class="userprofile" align="left">  {{hobby}} </li>
                 {% endfor %}
                     </ul>
+            </div>
     </div>
+        </div>
 
         </div>
 

@@ -4,6 +4,7 @@ html{
     min-height: 100%;
 }
 
+
 body{
 
      background-image: linear-gradient(180deg, #340e41, #180e41 );
@@ -57,9 +58,71 @@ background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgb
      margin-top: 30px;
      max-width: 550px;
      padding-top: 30px;
-     height: 430px;
+     height: 480px;
 
 }
+#profile_img{
+    padding-top: 10px;
+    margin-left: 200px;
+    display: flex;
+  justify-content: center;
+}
+.agree_terms{
+    color: white !important;
+    margin-left: -220px;
+    margin-right: 30px;
+}
+.image_input{
+    color: white;
+    margin-left: -50px;
+}
+.image_text{
+    color: white;
+    margin-left: -25px;
+}
+
+#hobby_field{
+    color: white;
+    margin-left: -30px !important;
+}
+
+.hobby{
+     color:white;
+     margin-left: -12px;
+ }
+
+.picture_label{
+    color: white;
+    margin-left: -5px;
+}
+.click_image {
+  padding:5px 10px;
+  background: #5900a6;
+  border:1px solid black;
+  position:relative;
+  color:#fff;
+  border-radius:2px;
+  text-align:center;
+  cursor:pointer;
+    margin-left: 40px;
+}
+#hide_file {
+    position: absolute;
+    z-index: 1000;
+    opacity: 0;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    height: 100%;
+    font-size: 24px;
+    width: 100%;
+
+}
+.list_hobbies{
+    columns: 2;
+    width:660px;
+}
+
 
  .sub_container_signup {
          background-color: #080808;
@@ -83,6 +146,11 @@ background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgb
 
  }
 
+  .dropdown-menu{
+      colums:2;
+    position: static!important;
+}
+
 /*-----End Signup----*/
 
 /*------------ Start Profile---------*/
@@ -94,7 +162,9 @@ background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgb
   height: 160px;
   object-fit: cover;
     align-items: left;
+    margin-top: 10px;
 }
+
 
  #information_title1{
      padding-top: 10px;
@@ -223,6 +293,8 @@ background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgb
 
   /*------------ End Login---------*/
 
+/*------------ Start Homepage---------*/
+
 
 
  .boot{
@@ -230,17 +302,37 @@ background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgb
 }
 
  .container_homepage{
-     background-image: linear-gradient(1800deg, #340e41, white);
-     border-style: 1px solid grey;
+     background-image: linear-gradient(1800deg, #340e41, #180e41 );
      margin: 0 auto;
-     text-align: center !important;
+     box-shadow:25px 25px 10px rgba(10, 10, 10, 0.5);
+     text-align: center;
      opacity: 0.8;
-     border: 1px solid white;
+     border: 5px solid black;
+     border-radius: 20px;
+     max-width: 800px;
+     height: 840px;
      margin-top: 30px;
-     max-width: 900px;
-     padding-top: 30px;
-     height: 900px;
  }
+
+ .sub_container_homepage{
+     background-color: #080808;
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 10px;
+      border-bottom: 5px solid black;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-top: 1px solid black;
+     max-width: 800px;
+     height: 90px;
+
+ }
+ .welcome_heading_homepage{
+     font-size: 20px;
+ }
+ /*------------ End Homepage---------*/
+/*------------ Start MyMatches---------*/
+/*------------ End MyMatches---------*/
 
   /*------------Start Index Page (Welcome page)---------*/
 
@@ -395,10 +487,6 @@ and (max-device-width: 600px)
      padding-right: 60px;
 }
 
- .hobby{
-     color:white
- }
-
 
  /*---------- Submit button hover animation--------*/
 
@@ -441,6 +529,7 @@ span.multiselect-native-select select{
     padding:0;
 
 }
+
 
 
 .multiselect-container.dropdown-menu{
@@ -517,7 +606,8 @@ li.multiselect-item.multiselect-group {
 /*----- button multiple selection of hobbies, this is needed in order to avoid showing the javascript loading----*/
 .option-group-demo, .hide
 {
-   display: none
+   display: none;
+
 }
 
 /*-----gender radio buttons----*/
@@ -561,6 +651,6 @@ td, th {
             .table-hover tbody tr:hover td,
             .table-hover tbody tr:hover th
 {
-                background: black !important;
+                background: rgba(0, 0, 0, 0.8) !important;
                 color:#fff !important;
 }

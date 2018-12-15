@@ -12,7 +12,7 @@
 <div class="sub_container_signup">
    <!---heading---->
 <header class="heading" > REGISTER</header>
-</div><br>
+</div>
 <!---Form starting---->
  <form class="signup_form" method='POST' action="{% url 'register' %}"  enctype='multipart/form-data'>
       {% csrf_token %}
@@ -93,10 +93,10 @@
                             <!----------- For Hobby-------->
                      <div class="col-sm-12"><br>
                         <div class ="row">
-                           <div class="col-xs-4 ">
+                           <div class="col-xs-3 ">
                               <label class="hobby">Hobbies:</label>
                            </div>
-                                    <div class="col-xs-4 ">
+                                    <div class="col-xs-3 ">
                            <select name ="hobby" id="option-group-signup" class="option-group-demo" multiple="multiple">
                               <optgroup label="Outdoor">
                                              {% for out_hobby in outdoor %}
@@ -111,11 +111,22 @@
 
                            </select>
                                     </div>
-                           <div class="col-xs-4">
-                                                              <input type="file" name="img_file" required/>
-                                 <input type="submit" class="btn btn-warning" value="Register"/>
-                                 <input type="checkbox" name="terms" required>Please confirm that you agree for your email to be sent to the people you have matched using hobmatch.<br>
-                                    </div>
+                        <!----------- Profile image-------->
+                           <div class="col-xs-6">
+                               <label class="picture_label">Profile image:</label>
+                               <label class="click_image">Choose file</label>
+                               <input type="file" name="img_file" class="click_image" id="hide_file" required/>
+                               </div>
+                        <!----------- Sign in Button -------->
+                            <div class="col-sm-12"><br>
+                                <div class ="row" id="profile_img">
+                                        <br>
+                                    <input type="checkbox" name="terms"  required><p class="agree_terms">confirm that you agree for your<br> email to be shared inside HobMatch.<br></p>
+                                 <input type="submit" class="btn btn-warning" id="register_button" value="Register"/>
+
+
+                                </div>
+                            </div>
                            </div>
                         </div>
                      </form>

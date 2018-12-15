@@ -2,9 +2,19 @@
 
 {% block content %}
 <body>
+<div class="welcome" id="welcome_heading">
+    <!---Page title---->
+   <header>Welcome to your HobMatch homepage</header>
+   <header class="welcome_heading_homepage"> Here you can see other people with your same hobbies, match with them and look at their profile</header>
+</div>
 	<div class="container_homepage">
-		<h2>Available Matches</h2>
-		<p>Enjoy your time</p>
+    <div class="sub_container_homepage">
+        <!---Container title---->
+		<header class="heading">Available Matches</header>
+		<header style="color: white">Enjoy your time</header>
+    </div>
+    <br>
+    <!---Table starting---->
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -35,7 +45,7 @@
 					</div>
 				</div>
 			</thead>
-			<tbody id = "tbody_id">
+			<tbody id = "tbody_id"><br><br><br>
      {% for username, hobby in members %}
 
 				<tr class="clickable-row" data-href="{{username}}/">
