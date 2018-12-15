@@ -258,7 +258,8 @@ def excludematched(members, user):
 def match(request, user):
     name = request.POST['username']
     matched = Member.objects.get(username=name)
-    email = EmailMessage('Hobmatch: You have been matched', ' Congratulations'+ matched.username + ' You have been matched on hobmatch by ' + user.username + 'Make sure to keep in touch! Here, you can contact him via his email address :) ' + user.email, to=[matched.email]) #fills the email to be sent to the user that has been matched. Check settings.py for the email properties
+    print(user.username)
+    email = EmailMessage('Hobmatch: You have been matched', ' Congratulations '+ matched.username + ' You have been matched on hobmatch by ' + user.username + ' Make sure to keep in touch! Here, you can contact him via his email address :) ' + user.email, to=[matched.email]) #fills the email to be sent to the user that has been matched. Check settings.py for the email properties
     email.send()#sends the email
     user.match.add(matched)
     matches = user.match.all()
