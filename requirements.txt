@@ -1,4 +1,4 @@
 conda==4.3.16
 Django==2.1.2
 Pillow==5.3.0
-WhiteNoise=4.1.2
+WhiteNoise==4.1.2
