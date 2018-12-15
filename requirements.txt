@@ -1,4 +1,4 @@
-conda==4.5.11
+conda==4.3.16
 Django==2.1.2
 Pillow==5.3.0
 
