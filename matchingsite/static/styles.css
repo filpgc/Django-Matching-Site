@@ -1,0 +1,658 @@
+/*-----Background-----*/
+html{
+    height: auto;
+    min-height: 100%;
+}
+
+
+body{
+
+     background-image: linear-gradient(180deg, #340e41, #180e41 );
+     background-repeat:no-repeat;
+     background-size:cover;
+     width:100%;
+     height: auto;
+     min-height: 100%;
+     overflow:auto;
+     font-family: Montserrat!important;
+     color: white;
+}
+
+.welcome{
+     color: white;
+     margin: 0 auto;
+     text-align: center;
+     margin-top: 45px;
+     opacity: 0.8;
+     max-width: 900px;
+     padding-top: -100px;
+}
+/*-----Start Nav bar----*/
+
+ .container-fluid{
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#340e41+0,000000+19,000000+76,340e41+100 */
+background: rgb(52,14,65); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(52,14,65,1) 0%, rgba(0,0,0,1) 19%, rgba(0,0,0,1) 76%, rgba(52,14,65,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgba(0,0,0,1) 76%,rgba(52,14,65,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgba(0,0,0,1) 76%,rgba(52,14,65,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+
+}
+
+.navbar-default a{
+     color:white !important;
+ }
+
+
+/*-----End Nav bar----*/
+
+/*-----Start signup----*/
+ .container_signup{
+     background-image: linear-gradient(1800deg, #340e41, #180e41 );
+     box-shadow:25px 25px 10px rgba(10, 10, 10, 0.5);
+     margin: 0 auto;
+     text-align: center;
+     opacity: 0.8;
+     border: 5px solid black;
+     border-radius: 20px;
+     margin-top: 30px;
+     max-width: 550px;
+     padding-top: 30px;
+     height: 480px;
+
+}
+#profile_img{
+    padding-top: 10px;
+    margin-left: 200px;
+    display: flex;
+  justify-content: center;
+}
+.agree_terms{
+    color: white !important;
+    margin-left: -220px;
+    margin-right: 30px;
+}
+.image_input{
+    color: white;
+    margin-left: -50px;
+}
+.image_text{
+    color: white;
+    margin-left: -25px;
+}
+
+#hobby_field{
+    color: white;
+    margin-left: -30px !important;
+}
+
+.hobby{
+     color:white;
+     margin-left: -12px;
+ }
+
+.picture_label{
+    color: white;
+    margin-left: -5px;
+}
+.click_image {
+  padding:5px 10px;
+  background: #5900a6;
+  border:1px solid black;
+  position:relative;
+  color:#fff;
+  border-radius:2px;
+  text-align:center;
+  cursor:pointer;
+    margin-left: 40px;
+}
+#hide_file {
+    position: absolute;
+    z-index: 1000;
+    opacity: 0;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    height: 100%;
+    font-size: 24px;
+    width: 100%;
+
+}
+.list_hobbies{
+    columns: 2;
+    width:660px;
+}
+
+
+ .sub_container_signup {
+         background-color: #080808;
+      margin-top: -30px;
+      text-align: center;
+      border-bottom: 5px solid black;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-top: 1px solid black;
+     max-width: 600px;
+     height: 70px;
+     padding-bottom: 20px;
+     padding-right: 0px;
+
+}
+
+
+  .signup_form {
+     padding-top: 20px;
+      padding-right: 23px;
+
+ }
+
+  .dropdown-menu{
+      colums:2;
+    position: static!important;
+}
+
+/*-----End Signup----*/
+
+/*------------ Start Profile---------*/
+
+#profile-img{
+    border-radius: 30%;
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+    align-items: left;
+    margin-top: 10px;
+}
+
+
+ #information_title1{
+     padding-top: 10px;
+     padding-bottom: 23px;
+     margin-top: 7px;
+     color: white;
+     font-size: 30px;
+     font-weight: bold;
+
+ }
+ #profile_information{
+     margin-top: 12px;
+ }
+  #information_title2{
+     padding-top: 7px;
+     padding-bottom: 17px;
+     margin-top: 7px;
+     color: white;
+     font-size: 30px;
+     font-weight: bold;
+
+ }
+.sub_container_profile1{
+      background-color: #080808;
+      margin-top: -30px;
+      text-align: center;
+      border-bottom: 5px solid black;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-top: 1px solid black;
+     max-width: 600px;
+     height: 70px;
+
+}
+.sub_container_profile2{
+         background-color: #080808;
+      margin-top: 190px;
+      text-align: center;
+      border-bottom: 5px solid black;
+      border-top: 5px solid black;
+     max-width: 600px;
+    padding-right:20px;
+     height: 70px;
+
+}
+ .container_profile{
+     background-image: linear-gradient(1800deg, #340e41, #180e41 );
+     box-shadow:25px 25px 10px rgba(10, 10, 10, 0.5);
+     margin: 0 auto;
+     text-align: center;
+     opacity: 0.8;
+     border: 5px solid black;
+     border-radius: 20px;
+     margin-top: 30px;
+     max-width: 550px;
+     padding-top: 30px;
+     height: 560px;
+
+}
+   /*------------End For Profile---------*/
+
+   /*------------ Start Login---------*/
+ .container_login{
+     background-image: linear-gradient(1800deg, #340e41, #180e41 );
+     margin: 0 auto;
+     box-shadow:25px 25px 10px rgba(10, 10, 10, 0.5);
+     text-align: center;
+     opacity: 0.8;
+     border: 5px solid black;
+     border-radius: 20px;
+     max-width: 400px;
+     height: 440px;
+
+}
+
+ .logged_p{
+     color: white;
+     font-size: 20px;
+     margin-top: 10px;
+     padding-top: 10px;
+
+ }
+
+  .sub_container_login{
+     background-color: #080808;
+      margin: 0 auto;
+      text-align: center;
+
+      border-bottom: 5px solid black;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-top: 1px solid black;
+     max-width: 400px;
+     height: 80px;
+
+}
+
+ #Sub_container_title {
+     padding-top: -10px;
+     margin-top: 17px;
+     color: white;
+     font-size: 33px;
+     font-weight: bold;
+     font-family: Montserrat;
+
+ }
+#welcome_heading{
+    font-family: Montserrat !important;
+    font-size: 38px !important;
+    text-shadow: 3px 6px black;
+}
+ .login_field{
+    border:none;
+     outline:none;
+     margin-top: 30px;
+     background: transparent;
+     width: 250px;
+     height: 50px;
+     border-bottom: 1px solid #fff;
+     color:white;
+     font-size: 23px;
+     max-width: 1000px;
+
+ }
+
+
+  /*------------ End Login---------*/
+
+/*------------ Start Homepage---------*/
+
+
+
+ .boot{
+     color:white;
+}
+
+ .container_homepage{
+     background-image: linear-gradient(1800deg, #340e41, #180e41 );
+     margin: 0 auto;
+     box-shadow:25px 25px 10px rgba(10, 10, 10, 0.5);
+     text-align: center;
+     opacity: 0.8;
+     border: 5px solid black;
+     border-radius: 20px;
+     max-width: 800px;
+     height: 840px;
+     margin-top: 30px;
+ }
+
+ .sub_container_homepage{
+     background-color: #080808;
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 10px;
+      border-bottom: 5px solid black;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-top: 1px solid black;
+     max-width: 800px;
+     height: 90px;
+
+ }
+ .welcome_heading_homepage{
+     font-size: 20px;
+ }
+ /*------------ End Homepage---------*/
+/*------------ Start MyMatches---------*/
+/*------------ End MyMatches---------*/
+
+  /*------------Start Index Page (Welcome page)---------*/
+
+
+.container_welcome{
+     border-style: 1px solid grey;
+     margin: 0 auto;
+     text-align: center;
+     opacity: 0.8;
+     margin-top: 100px;
+     padding-right:20px;
+     padding-top: 30px;
+     height: 300px;
+}
+
+.welcome_heading {
+     color: orange;
+     text-shadow: 5px 6px black;
+
+     font-size: 80px;
+     animation: fadeAndScale .3s ease-in;
+     transform-origin: center bottom;
+
+ }
+
+#error_message{
+    font-size: 50px;
+}
+
+ .welcome_subheading{
+         color: white;
+         font-size: xx-large
+             ;
+ }
+
+  .welcome_subsubheading{
+         color: white;
+         font-size: smaller;
+ }
+  /*------------Animation---------*/
+
+@keyframes fadeAndScale{
+    from{
+        opacity: 0;
+        transform: scale3d(.75, .75, 1);
+    }
+    to{
+        opacity: 1;
+        transform: scale3d(1, 1, 1)
+    }
+}
+
+ .animation {
+     animation: fadeAndScale 1s;
+
+ }
+
+   /*------------End Index Page (Welcome page)---------*/
+
+
+ /*------------Only on mobile---------*/
+@media only screen
+and (max-device-width: 600px)
+ {
+    .welcome{
+        margin-top: 0px;
+    }
+}
+
+
+
+/*--- for label of username and fullname---*/
+ .userprofile, .username{
+     margin-left: 1px;
+     font-size: 14px;
+     color: white;
+     margin-top: 10px;
+}
+ .fullname{
+     margin-left: 1px;
+     font-size: 14px;
+     color: white;
+     margin-top: 5px;
+}
+ #uname{
+     margin-top:5px;
+}
+/*---for heading-----*/
+ .heading{
+     text-decoration:bold;
+     text-align : center;
+     font-size:30px;
+     color:white;
+     padding-top:10px;
+     font-weight: bold;
+
+}
+
+
+/*-------email, age bar ----------*/
+ #email, #datepicker{
+     margin-top: 5px;
+
+}
+/*-------email, age label ----------*/
+ .mail, .age{
+     margin-left: 32px;
+     color: white;
+     font-size: 14px;
+     margin-top: 13px;
+
+}
+
+/*-----------Password--------*/
+
+ .pass{
+     color: white;
+     margin-top: 9px;
+     font-size: 14px;
+     margin-left: 6px;
+     margin-top: 9px;
+}
+ #password{
+     margin-top: 6px;
+}
+ .password{
+     color: white;
+     font-size: 14px;
+     margin-left: 4px;
+     margin-top: 8px;
+ }
+
+/*--------------for Gender---------------*/
+
+ .gender {
+     color: white;
+     font-size: 14px;
+     margin-left: 23px;
+     margin-top: 8px;
+}
+/*---------- for Input type--------*/
+ .col-xs-4.male{
+     color: white;
+     font-size: 13px;
+     margin-top: 9px;
+}
+ .col-xs-4.female {
+     color: white;
+     font-size: 13px;
+     margin-top: 9px;
+
+     padding-right: 60px;
+}
+
+
+ /*---------- Submit button hover animation--------*/
+
+
+ .btn.btn-warning:hover, .match:hover{
+     box-shadow: 2px 1px 2px 3px black;
+     background:#5900a6;
+     color:white;
+     transition: background-color 1.0s ease-in-out,border-color 1s ease-in-out,box-shadow 1s ease-in-out;
+}
+
+ .match, .unmatch{
+      background:orange;
+     color:white;
+     border-radius:10px;
+ }
+
+
+/*-----multi select button for hobbies, position fixed----*/
+span.multiselect-native-select{
+    position: static;
+
+
+}
+
+/*----- within the multi select button for hobbies,styling----*/
+span.multiselect-native-select select{
+    overflow:hidden!important;
+    border:0!important;
+    height:1px!important;
+    margin:-1px -1px -1px -3px!important;
+    padding:0!important;
+    width:1px!important;
+    left:50%;
+    color:white;
+}
+
+.multiselect-container{
+    list-style-type:none;
+    padding:0;
+
+}
+
+
+
+.multiselect-container.dropdown-menu{
+    background-image: linear-gradient(1800deg, #56176B, #180e41 );
+    color:white;
+}
+.multiselect-container .input-group{
+    margin:5px;
+
+}
+.multiselect-container .multiselect-reset .input-group{
+    width:93%
+}
+.multiselect-container>li{
+    padding:0
+}
+.multiselect-container>li>a.multiselect-all label{
+    font-weight:700;
+}
+.multiselect-container>li.multiselect-group label{
+    margin:0;
+    padding:3px 30px;
+    height:100%;
+    font-weight:700;
+}
+.multiselect-container>li.multiselect-group-clickable label{
+    cursor:pointer
+}
+.multiselect-container>li>a{
+    padding:0
+}
+.multiselect-container>li>a>label{
+    margin:0;
+    height:100%;
+    cursor:pointer;
+    font-weight:400;
+    color:white;
+    padding:3px 20px 3px 40px
+}
+.multiselect-container>li>a>label.checkbox,.multiselect-container>li>a>label.radio{
+    margin:0
+}
+.multiselect-container>li>a>label>input[type=checkbox]{
+    margin-bottom:5px
+}
+.btn-group>.btn-group:nth-child(2)>.multiselect.btn{
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+
+}
+.form-inline .multiselect-container label.checkbox,.form-inline .multiselect-container label.radio{
+    padding:3px 20px 3px 40px
+}
+.form-inline .multiselect-container li a label.checkbox input[type=checkbox],.form-inline .multiselect-container li a label.radio input[type=radio]{
+    margin-left:-20px;
+    margin-right:0
+}
+
+li.multiselect-item.multiselect-group {
+     background:#5900a6;
+     margin:0px;
+}
+
+.dropdown-menu>.active>a {
+    background-color:transparent !important;
+}
+
+
+.multiselect-container>li :hover {
+    background-color:transparent !important;
+    transform: scale(1.1);
+}
+.dropdown-menu{
+    position: static !important;
+}
+/*----- button multiple selection of hobbies, this is needed in order to avoid showing the javascript loading----*/
+.option-group-demo, .hide
+{
+   display: none;
+
+}
+
+/*-----gender radio buttons----*/
+input[type="radio"], input[type="checkbox"]{
+    margin-right:3px !important;
+}
+
+
+
+/*-----HobMatch name on the center ----*/
+
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    font-size: 30px !important;
+    text-align: center;
+    margin:0 auto;
+}
+
+.navbar-toggle {
+    z-index: 3;
+}
+
+
+/*-----HobMatch name on the center on mobile keep it centered----*/
+
+@media only screen
+and (max-width: 770px) {
+    .navbar-brand {
+        margin-top:-50px;
+    }
+
+}
+
+td, th {
+    color:white
+}
+
+.table-hover tbody tr:hover,
+            .table-hover tbody tr:hover td,
+            .table-hover tbody tr:hover th
+{
+                background: rgba(0, 0, 0, 0.8) !important;
+                color:#fff !important;
+}
