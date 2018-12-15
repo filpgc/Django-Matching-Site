@@ -1,5 +1,20 @@
 # Matching-Site
 #Description: Your task is to develop a matching website using the Django framework. The website should provide the following basic functionalities:
+
+Run on django 2.1.2 / python 3.7.0 
+
+https://conda.io/docs/user-guide/install/linux.html
+
+conda create --name nameofyourenvironment python=3.7.0
+
+source activate nameofyourenvironment
+
+pip install django 2.1.2. ---> install django 2.1.2 on environment
+
+clone the master branch of this git, cd/dir to folder in which you cloned the master branch in and do:
+
+python manage.py runserver
+
 1. Users can create an account on the site and login.
 2. The user’s proFile should contain (at least): proFile image, email, gender, date of birth,
 and a list of hobbies.
