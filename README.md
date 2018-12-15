@@ -4,9 +4,13 @@
 Run on django 2.1.2 / python 3.7.0 
 
 https://conda.io/docs/user-guide/install/linux.html
+
 conda create --name nameofyourenvironment python=3.7.0
+
 source activate nameofyourenvironment
-pip install django 2.1.2. ---> install django 2.1.2 on environment.
+
+pip install django 2.1.2. ---> install django 2.1.2 on environment
+
 clone the master branch of this git, cd/dir to folder in which you cloned the master branch in and do:
 
 python manage.py runserver
