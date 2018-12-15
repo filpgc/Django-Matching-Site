@@ -1,1 +1,1 @@
-web: gunicorn matchingsite:app
+web: gunicorn matchingsite.app:app
