@@ -24,8 +24,7 @@ SECRET_KEY = ')wix!ea2qps*w^^3b8!s*3it5cm-kw91+si))-he7!g$aeke&i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ["138.37.178.27","127.0.0.1"]
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost','limitless-bastion-18645.git']
 
 
 # Application definition
@@ -127,6 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, ‘staticfiles’)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
