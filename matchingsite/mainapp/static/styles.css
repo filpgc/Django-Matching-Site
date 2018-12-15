@@ -349,7 +349,7 @@ background: linear-gradient(to right,  rgba(52,14,65,1) 0%,rgba(0,0,0,1) 19%,rgb
 }
 
 .welcome_heading {
-     color: white;
+     color: orange;
      text-shadow: 5px 6px black;
 
      font-size: 80px;

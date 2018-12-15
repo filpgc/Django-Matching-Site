@@ -4,7 +4,7 @@ from django.db import models
 
 
     
-class Hobby(models.Model):
+class Hobby(models.Model):#creates the hobby model
 
     class Meta:
         verbose_name_plural = "Hobby"
@@ -21,8 +21,7 @@ class Hobby(models.Model):
         return self.name
 
 
-class Member(User):
- #  image = models.ImageField(upload_to='profile_images')
+class Member(User):#creates the member model
     image = models.ImageField(upload_to='profile_images')
     dob = models.DateField(max_length=8, null=True, blank=False)
 
@@ -31,12 +30,12 @@ class Member(User):
     class Meta:
         verbose_name_plural = "User"
 
-    hobby = models.ManyToManyField(
+    hobby = models.ManyToManyField(#gives a many to many relationship between hobby and member
         to=Hobby,
         blank=False,
         symmetrical=False
     )
-    match = models.ManyToManyField(
+    match = models.ManyToManyField(#creates the match table
         to='self'   ,
         blank=True,
         symmetrical=False
@@ -49,12 +48,6 @@ class Member(User):
 
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
 
-#@property
-#    def age(self):
-#    if self.dob is not None:
-#        return int((datetime.now().year - self.dob.year))
-#    else
-#       return "DOB NOT SPECIFIED"
 
     def __str__(self):
         return self.username

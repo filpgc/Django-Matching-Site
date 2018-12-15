@@ -78,12 +78,12 @@ def register(request):
         return render(request, 'mainapp/user-registered.html', context)
 
 
-def calculate_age(dob):
+def calculate_age(dob): #view that returns the age from the dob of the user.
     today = date.today()
     return today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
 
 
-def agerange(min_age, max_age):
+def agerange(min_age, max_age):#view that returns a filtered list of members that have their age within the age range given by the arguments the function takes
     current = now().date()
     min_date = date(current.year - min_age, current.month, current.day)
     max_date = date(current.year - max_age, current.month, current.day)
@@ -91,7 +91,7 @@ def agerange(min_age, max_age):
     return Member.objects.filter(dob__lt=min_date, dob__gt=max_date)
 
 
-def login(request):
+def login(request):#is used to login the user
     if not ('username' in request.POST and 'password' in request.POST):
         context = {'appname': appname}
         return render(request, 'mainapp/login.html', context)
@@ -124,7 +124,7 @@ def login(request):
             raise Http404('Wrong password')
 
 
-@loggedin
+@loggedin#decorator that verifies the user is logged in. if he is, the following view can be called
 def logout(request, user):  # view for logout/, flushes the session and logs out the user
     request.session.flush()
     context = {'appname': appname}
@@ -132,7 +132,7 @@ def logout(request, user):  # view for logout/, flushes the session and logs out
 
 
 @loggedin
-def profile(request, user):
+def profile(request, user):#view that will allow the user to edit his profile
     user1 = Member.objects.filter(username=user)  # QuerySet object
     condition = profile
     if request.POST:
@@ -197,7 +197,7 @@ def hobby(request, user):
     return JsonResponse(context, safe=False)
 
 
-def sorting(members, user):
+def sorting(members, user): # sorts the user in regards to how many hobbies they have in common
     count = {}
     current = 0
     user_hobbies = user.hobby.all()
@@ -207,14 +207,13 @@ def sorting(members, user):
             for z in x.hobby.all():
                 if y == z:
                     current = current + 1
-        # if current > 0 :
         count[str(x)] = current
         current = 0
     return sorted(count.items(), key=lambda x: x[1], reverse=True)
 
 
 @loggedin
-def filter(request, user):
+def filter(request, user): # view for the filters, both age and gender. does not return anything. the filtering is done with an ajax call.
     val = request.POST.get('val')
     gender = request.POST.get('gender')
     filtered = Member.objects.all()
@@ -237,14 +236,14 @@ def filter(request, user):
 
 
 @loggedin
-def homepage(request, user):
+def homepage(request, user):# view of the homepage. 
     members = Member.objects.all()
-    members = excludematched(members, user)
-    sort = sorting(members, user)
+    members = excludematched(members, user)#excludes matched users from the list of users that will be presented to the logged in user
+    sort = sorting(members, user)#sorts the remaining list of users and saves it in sort.
     context = {
-        "members": sort
+        "members": sort #passes the sorted list of users in the context
     }
-    return render(request, 'mainapp/homepage.html', context)
+    return render(request, 'mainapp/homepage.html', context)#renders the sorted list of users that the logged in user is not matched with.
 
 
 # exclude already matched memebrs, in order to show only the unmatched available ones
@@ -255,10 +254,9 @@ def excludematched(members, user):
 
 
 @loggedin
-def match(request, user):
+def match(request, user):#view that lets users match with the match button. is used by an ajax call
     name = request.POST['username']
     matched = Member.objects.get(username=name)
-    print(user.username)
     email = EmailMessage('Hobmatch: You have been matched', ' Congratulations '+ matched.username + ' You have been matched on hobmatch by ' + user.username + ' Make sure to keep in touch! Here, you can contact him via his email address :) ' + user.email, to=[matched.email]) #fills the email to be sent to the user that has been matched. Check settings.py for the email properties
     email.send()#sends the email
     user.match.add(matched)
@@ -268,7 +266,7 @@ def match(request, user):
 
 
 @loggedin
-def unmatch(request, user):
+def unmatch(request, user):#view that is used in ajax, allows users to unmatch on the mymatches page with the unmatch button
     name = request.POST['username']
     matched = Member.objects.get(username=name)
     email = EmailMessage('Hobmatch: You have been unmatched', 'Bummer '+ matched.username + ' You have been unmatched on hobmatch.. by ' + user.username+' Better luck next time', to=[matched.email])
@@ -280,7 +278,7 @@ def unmatch(request, user):
 
 
 @loggedin
-def mymatches(request, user):
+def mymatches(request, user):#view of the my matches page. Sorts users of hobmatch and checks that they are matched to the logged in users
     matches = user.match.all()
     count = {}
     dict = []
