@@ -36,6 +36,7 @@
         <a class="navbar-brand" href="{% url 'homepage' %}">HobMatch</a>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        {% if loggedin %}
         <li><a href="{% url 'profile' %}">Profile</a></li>
         <li><a href="{% url 'homepage' %}">Homepage</a></li>
           <li><a href="{% url 'mymatches' %}">My Matches</a></li>
@@ -43,9 +44,12 @@
       <ul class="nav navbar-nav navbar-right">
 
             <li><a href="{% url 'logout' %}">Log Out</a></li>
+          {% else %}
         <li><a href="{% url 'login' %}">Log in</a></li>
         <li><a href="{% url 'signup' %}">Sign up</a>
+          {% endif %}
             <li role="separator" class="divider"></li>
+          }
           </ul>
         </li>
       </ul>

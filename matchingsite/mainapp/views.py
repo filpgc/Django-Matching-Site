@@ -241,7 +241,8 @@ def homepage(request, user):# view of the homepage.
     members = excludematched(members, user)#excludes matched users from the list of users that will be presented to the logged in user
     sort = sorting(members, user)#sorts the remaining list of users and saves it in sort.
     context = {
-        "members": sort #passes the sorted list of users in the context
+        "members": sort, #passes the sorted list of users in the context
+        "loggedin":True
     }
     return render(request, 'mainapp/homepage.html', context)#renders the sorted list of users that the logged in user is not matched with.
 
@@ -292,7 +293,8 @@ def mymatches(request, user):#view of the my matches page. Sorts users of hobmat
     sort = sorted(count.items(), key=lambda x: len(x[1]), reverse=True)
 
     context = {
-        "match": sort
+        "match": sort,
+        "loggedin": True
     }
     return render(request, 'mainapp/mymatches.html', context)
 

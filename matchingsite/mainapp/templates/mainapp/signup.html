@@ -29,7 +29,7 @@
                <label class="fullname">Full Name :</label>
             </div>
             <div class="col-xs-8">
-               <input type="text" name="fname" id="fname" placeholder="Enter your First Name" class="form-control " required>
+               <input type="text" maxlength='25'name="fname" pattern="[[^A-Za-z]{3,25}"title="Only letters are accepted."pattern="[a-zA-Z]*" id="fname" placeholder="Enter your Full Name" class="form-control " required>
                </div>
             </div>
          </div>
@@ -40,7 +40,7 @@
                   <label class="username">Username :</label>
                </div>
                <div class ="col-xs-8">
-                  <input type="text" name="uname" id="uname" placeholder="Enter your Username" class="form-control last" required>
+                  <input type="text"maxlength='16' pattern="[[^A-Za-z0-9]{3,15}"title="Letters and numbers. Limited to 15 characters and must have at least 3"name="uname" id="uname" placeholder="Enter your Username" class="form-control last" required>
                   </div>
                </div>
             </div>
@@ -51,7 +51,7 @@
                      <label class="age" >Date of Birth :</label>
                   </div>
                   <div class="col-xs-8"   >
-                     <input type="text" name ="dob"id="datepicker" class="form-control" required placeholder="Enter your date of birth" >
+                     <input type="text" readonly ="readonly" name ="dob"id="datepicker" class="form-control" required placeholder="Enter your date of birth" >
                      </div>
                   </div>
                </div>
@@ -62,7 +62,7 @@
                      <label class="mail" >Email :</label>
                   </div>
                   <div class="col-xs-8"   >
-                     <input type="email" name="email"  id="email"placeholder="Enter your email" class="form-control" required >
+                     <input type="email" maxlength='25'name="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" title="Please enter a valid email address."id="email"placeholder="Enter your email" class="form-control" required >
                      </div>
                   </div>
                </div>
@@ -73,7 +73,7 @@
                         <label class="password">Password :</label>
                      </div>
                      <div class="col-xs-8">
-                        <input type="password" name="password" id="password" placeholder="Enter your Password" class="form-control" required>
+                        <input type="password"maxlength='16' pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}$"title="Please include 1 Uppercase, 1 Lowercase , 1 number and have it be at least 8 Chars up to 16"name="password" id="password" placeholder="Enter your Password" class="form-control" required>
                         </div>
                      </div>
                   </div>
