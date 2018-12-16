@@ -173,7 +173,7 @@ def upload_image(request, user):  # view of uploadimage/, allows user to upload 
     else:
         raise Http404('Image file not received')
 
-
+@loggedin
 # retrieve all the fields passed in the request
 def retrieve(request, condition):
     u = request.POST['uname']
@@ -190,13 +190,12 @@ def retrieve(request, condition):
     return dict
 
 
-@loggedin
 def hobby(request, user):
     hobby = user.hobby.all()
     context = serializers.serialize('json', hobby)
     return JsonResponse(context, safe=False)
 
-
+@loggedin
 def sorting(members, user): # sorts the user in regards to how many hobbies they have in common
     count = {}
     current = 0
@@ -245,7 +244,7 @@ def homepage(request, user):# view of the homepage.
     }
     return render(request, 'mainapp/homepage.html', context)#renders the sorted list of users that the logged in user is not matched with.
 
-
+@loggedin
 # exclude already matched memebrs, in order to show only the unmatched available ones
 def excludematched(members, user):
     for match in user.match.all():
@@ -296,7 +295,7 @@ def mymatches(request, user):#view of the my matches page. Sorts users of hobmat
     }
     return render(request, 'mainapp/mymatches.html', context)
 
-
+@loggedin
 # profile of the selected user
 def users_profile(request, username):
     profile = Member.objects.get(username=username)
