@@ -10,7 +10,8 @@ $(function() {
         dateFormat: 'yy-mm-dd',
         changeMonth: true,
         changeYear: true,
-        yearRange: "-100:-18"
+        yearRange: "-100:-18",
+        maxDate: '-18y',
     });
 
 

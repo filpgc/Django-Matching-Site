@@ -60,8 +60,6 @@ def register(request):
     if 'fname' in request.POST and 'uname' in request.POST and 'password' in request.POST:
         dict = retrieve(request, condition)
         user = Member(username=dict[0], first_name=dict[1], email=dict[2], dob=dict[4], gender=dict[5],image=dict[6])
-        email = EmailMessage('Hobmatch: Thanks for signing up!', 'Thank you for signing up '+ dict[0] + ' please access the hobmatch to get on matching!', to=[dict[2]])
-        email.send()
         try:
             user.set_password(dict[7])
             user.save()
@@ -70,6 +68,8 @@ def register(request):
                 user.hobby.add(hob)
         except IntegrityError:
             raise Http404('Username ' + dict[0] + ' already taken: Usernames must be unique')
+        email = EmailMessage('Hobmatch: Thanks for signing up!', 'Thank you for signing up '+ dict[0] + ' please access the hobmatch to get on matching!', to=[dict[2]])
+        email.send()
         context = {
             'appname': "hobby",
             'username': dict[0],
@@ -309,6 +309,7 @@ def users_profile(request, username):
         "username": profile.username,
         "gender": profile.gender,
         "image": profile.image,
+        "loggedin":True, #fixes users having to login again when looking at a different user's profile
         "hobbies": profile.hobby.all()
     }
     return render(request, 'mainapp/view_profile.html', context)
