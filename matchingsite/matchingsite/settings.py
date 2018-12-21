@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')wix!ea2qps*w^^3b8!s*3it5cm-kw91+si))-he7!g$aeke&i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost','127.0.0.1','limitless-bastion-18645.herokuapp.com']
 
 
